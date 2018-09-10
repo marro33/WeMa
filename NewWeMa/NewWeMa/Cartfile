@@ -1,0 +1,3 @@
+github "AFNetworking/AFNetworking" ~> 3.0
+github "TheLevelUp/ZXingObjC" ~> 3.2
+github "Alamofire/Alamofire" ~> 4.7
