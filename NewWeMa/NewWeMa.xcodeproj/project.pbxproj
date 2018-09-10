@@ -15,6 +15,7 @@
 		790D52CA2143A58C0015651C /* MyPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 790D52C62143A58C0015651C /* MyPoint.m */; };
 		790D5306214404C50015651C /* RC4.m in Sources */ = {isa = PBXBuildFile; fileRef = 790D5305214404C50015651C /* RC4.m */; };
 		790D530B2146530E0015651C /* myCodeObjcV.c in Sources */ = {isa = PBXBuildFile; fileRef = 790D530A2146530E0015651C /* myCodeObjcV.c */; };
+		790D530D2146A7EB0015651C /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790D530C2146A7EB0015651C /* UserViewController.swift */; };
 		798DFA902142E976007A30B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798DFA8F2142E976007A30B2 /* AppDelegate.swift */; };
 		798DFA952142E976007A30B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 798DFA932142E976007A30B2 /* Main.storyboard */; };
 		798DFA972142E977007A30B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 798DFA962142E977007A30B2 /* Assets.xcassets */; };
@@ -62,6 +63,7 @@
 		790D5304214404C50015651C /* RC4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RC4.h; sourceTree = "<group>"; };
 		790D5305214404C50015651C /* RC4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RC4.m; sourceTree = "<group>"; };
 		790D530A2146530E0015651C /* myCodeObjcV.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = myCodeObjcV.c; sourceTree = "<group>"; };
+		790D530C2146A7EB0015651C /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		798DFA8C2142E976007A30B2 /* NewWeMa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewWeMa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		798DFA8F2142E976007A30B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		798DFA942142E976007A30B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				790D52BD2143A57D0015651C /* DecodeUtils */,
 				798DFA8F2142E976007A30B2 /* AppDelegate.swift */,
 				798DFAAF2142EF0C007A30B2 /* ViewController.swift */,
+				790D530C2146A7EB0015651C /* UserViewController.swift */,
 				798DFA932142E976007A30B2 /* Main.storyboard */,
 				798DFA962142E977007A30B2 /* Assets.xcassets */,
 				798DFA982142E977007A30B2 /* LaunchScreen.storyboard */,
@@ -277,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				798DFAB02142EF0C007A30B2 /* ViewController.swift in Sources */,
+				790D530D2146A7EB0015651C /* UserViewController.swift in Sources */,
 				0B93A6A1214393F300E4C811 /* QrScanViewController.swift in Sources */,
 				790D530B2146530E0015651C /* myCodeObjcV.c in Sources */,
 				790D52C92143A58C0015651C /* DecodeUtils.m in Sources */,
