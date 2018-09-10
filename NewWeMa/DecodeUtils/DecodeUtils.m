@@ -1547,7 +1547,7 @@ typedef struct  {
                         stringByReplacingOccurrencesOfString:sequence withString:@""]
                         stringByReplacingOccurrencesOfString:@"M" withString: @""];
 
-//    findTwoOnePattern=[[[findTwoOnePattern  stringByReplacingOccurrencesOfString:@"a" withString: @"3"] stringByReplacingOccurrencesOfString:@"b" withString:@"2"] stringByReplacingOccurrencesOfString:@"*" withString:@"1"];
+//  findTwoOnePattern=[[[findTwoOnePattern  stringByReplacingOccurrencesOfString:@"a" withString: @"3"] stringByReplacingOccurrencesOfString:@"b" withString:@"2"] stringByReplacingOccurrencesOfString:@"*" withString:@"1"];
 //
 //
 //    findTwoOnePattern=[[findTwoOnePattern  stringByReplacingOccurrencesOfString:@"a" withString: @"3"] stringByReplacingOccurrencesOfString:@"b" withString:@"2"];

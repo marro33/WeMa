@@ -10,7 +10,7 @@
 import UIKit
 import AVFoundation
 
-class anotherqrViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+class QrScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     @IBOutlet weak var viewPreview: UIView!
     //@IBOutlet weak var viewPreview: UIView!
@@ -93,14 +93,20 @@ class anotherqrViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         for data in metadataObjects {
             let metaData = data as! AVMetadataObject
             print(metaData.description)
+
+            //解码接口
             let transformed = videoPreviewLayer?.transformedMetadataObject(for: metaData) as? AVMetadataMachineReadableCodeObject
+
+
             if let unwraped = transformed {
-                print(unwraped.stringValue)
+                print("unwraped:" + unwraped.stringValue)
                 lblString.text = unwraped.stringValue
                 btnStartStop.setTitle("Start", for: .normal)
                 self.performSelector(onMainThread: #selector(stopReading), with: nil, waitUntilDone: false)
                 isReading = false;
             }
+
+
         }
     }
 }

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B6EE2D221439E92005BC58A /* barreader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B6EE2D121439E92005BC58A /* barreader.m */; };
-		0B93A6A1214393F300E4C811 /* anotherqrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B93A6A0214393F300E4C811 /* anotherqrViewController.swift */; };
+		0B93A6A1214393F300E4C811 /* QrScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B93A6A0214393F300E4C811 /* QrScanViewController.swift */; };
 		6E41006D6B3245CAC348193B /* Pods_NewWeMa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BCF53FF9755CB99F2E1C198 /* Pods_NewWeMa.framework */; };
 		790D52C72143A58C0015651C /* MyImageChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 790D52BF2143A58C0015651C /* MyImageChecker.m */; };
 		790D52C92143A58C0015651C /* DecodeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 790D52C52143A58C0015651C /* DecodeUtils.m */; };
@@ -49,7 +49,7 @@
 		0B6EE2CF21439E92005BC58A /* NewWeMa-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NewWeMa-Bridging-Header.h"; sourceTree = "<group>"; };
 		0B6EE2D021439E92005BC58A /* barreader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = barreader.h; sourceTree = "<group>"; };
 		0B6EE2D121439E92005BC58A /* barreader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = barreader.m; sourceTree = "<group>"; };
-		0B93A6A0214393F300E4C811 /* anotherqrViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = anotherqrViewController.swift; sourceTree = "<group>"; };
+		0B93A6A0214393F300E4C811 /* QrScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrScanViewController.swift; sourceTree = "<group>"; };
 		5BCF53FF9755CB99F2E1C198 /* Pods_NewWeMa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewWeMa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69BD66124D1D2152351E53E8 /* Pods-NewWeMa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewWeMa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewWeMa/Pods-NewWeMa.debug.xcconfig"; sourceTree = "<group>"; };
 		790D52BE2143A58C0015651C /* MyPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyPoint.h; path = DecodeUtils/MyPoint.h; sourceTree = SOURCE_ROOT; };
@@ -145,7 +145,7 @@
 				798DFA962142E977007A30B2 /* Assets.xcassets */,
 				798DFA982142E977007A30B2 /* LaunchScreen.storyboard */,
 				798DFA9B2142E977007A30B2 /* Info.plist */,
-				0B93A6A0214393F300E4C811 /* anotherqrViewController.swift */,
+				0B93A6A0214393F300E4C811 /* QrScanViewController.swift */,
 				0B6EE2D021439E92005BC58A /* barreader.h */,
 				0B6EE2D121439E92005BC58A /* barreader.m */,
 				0B6EE2CF21439E92005BC58A /* NewWeMa-Bridging-Header.h */,
@@ -277,7 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				798DFAB02142EF0C007A30B2 /* ViewController.swift in Sources */,
-				0B93A6A1214393F300E4C811 /* anotherqrViewController.swift in Sources */,
+				0B93A6A1214393F300E4C811 /* QrScanViewController.swift in Sources */,
 				790D530B2146530E0015651C /* myCodeObjcV.c in Sources */,
 				790D52C92143A58C0015651C /* DecodeUtils.m in Sources */,
 				790D52C72143A58C0015651C /* MyImageChecker.m in Sources */,
