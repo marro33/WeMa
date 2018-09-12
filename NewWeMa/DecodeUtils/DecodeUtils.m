@@ -79,6 +79,20 @@ typedef struct  {
     return img;
 }
 
+
+- (void)saveZXbitmap:(ZXBinaryBitmap*)zxbitmap{
+
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *path = [documentsDirectory stringByAppendingString:@"bitmap"];
+
+    //    ZXBinarizer *binerizer = [[ZXBinarizer alloc]initWithSource:<#(ZXLuminanceSource *)#>]
+    //
+    //    [ZXBinaryBitmap binaryBitmapWithBinarizer:<#(ZXBinarizer *)#>
+
+
+}
+
 - (NSString *) decodeBitMap : (ZXBinaryBitmap *) bitmap {
 
     /*
@@ -91,6 +105,9 @@ typedef struct  {
     NSLog(@"step1");
 
     ZXBitMatrix *binaryMatrix = [bitmap blackMatrixWithError: nil];
+
+
+    [self saveZXbitmap:bitmap];
 
     int bitMapWidth = [binaryMatrix width];
     int bitMapHeight = [binaryMatrix height];
@@ -127,12 +144,12 @@ typedef struct  {
     }
 
     //这里有内存问题
-//    memset(whetherChecked,0,h*w*sizeof(BOOL));
-//    for(int i = 0;i < h; i++){
-//        for(int j = 0; j < w; j++){
-//            whetherChecked[i][j] = 0;
-//        }
-//    }
+    //    memset(whetherChecked,0,h*w*sizeof(BOOL));
+    //    for(int i = 0;i < h; i++){
+    //        for(int j = 0; j < w; j++){
+    //            whetherChecked[i][j] = 0;
+    //        }
+    //    }
 
 
     pixels=(int *)calloc(bitMapWidth * bitMapHeight,sizeof(int));
@@ -183,7 +200,7 @@ typedef struct  {
         CGColorSpaceRelease(rgbcolorspace);
         return @ "rotate theta not found";
     }
-        NSLog(@"rotate theta = %f", theta);
+    NSLog(@"rotate theta = %f", theta);
 
     /*
      we get the theta -- the angle between the standLine and the horizonLine
@@ -216,31 +233,31 @@ typedef struct  {
 
 
 
-//用来检查是不是存在有点越界，其实没有必要，可以删去
-//    int failpointindex=[self firstPointNotInRectangleIndex:CGRectMake(0, 0, bitMapWidth, bitMapHeight) amongPoints:pointsList];
-//    if (failpointindex>=0){
-//            NSLog(@"fail origin i=%d x=%f,y=%f",failpointindex,pointsList[failpointindex].centX,pointsList[failpointindex].centY);
-//            return @"nothing";
-//    }
+    //用来检查是不是存在有点越界，其实没有必要，可以删去
+    //    int failpointindex=[self firstPointNotInRectangleIndex:CGRectMake(0, 0, bitMapWidth, bitMapHeight) amongPoints:pointsList];
+    //    if (failpointindex>=0){
+    //            NSLog(@"fail origin i=%d x=%f,y=%f",failpointindex,pointsList[failpointindex].centX,pointsList[failpointindex].centY);
+    //            return @"nothing";
+    //    }
 
 
     //对点进行旋转操作，且要根据 “rotatedRect” 进行适当的位移操作，使之位于新的rect范围中
     NSMutableArray<MyPoint*> *rotatedPointsList;
     rotatedPointsList = [self rotatePoints : pointsList
-                         withAngle : radians
-                     atRotatedRect : rotatedRect];
+                                 withAngle : radians
+                             atRotatedRect : rotatedRect];
 
     //创建位移后的，以（0，0）为原点的新的窗口
     CGRect newRect = CGRectMake(0.0, 0.0, round(rotatedRect.size.width), round(rotatedRect.size.height));
 
-//  可以删去
-//    failpointindex=[self firstPointNotInRectangleIndex:rectafterrotate amongPoints:rotatedList];
-//
-//    if (failpointindex>=0){
-//        NSLog(@"fail after rotation i=%d x=%f,y=%f",failpointindex,rotatedList[failpointindex].centX,rotatedList[failpointindex].centY);
-//        return @"nothing";
-//
-//    }
+    //  可以删去
+    //    failpointindex=[self firstPointNotInRectangleIndex:rectafterrotate amongPoints:rotatedList];
+    //
+    //    if (failpointindex>=0){
+    //        NSLog(@"fail after rotation i=%d x=%f,y=%f",failpointindex,rotatedList[failpointindex].centX,rotatedList[failpointindex].centY);
+    //        return @"nothing";
+    //
+    //    }
 
     bitMapWidth = (int)round(newRect.size.width);
     bitMapHeight = (int)round(newRect.size.height);
@@ -257,7 +274,7 @@ typedef struct  {
     NSLog(@"step5");
 
 
-//  warning: could not execute support code to read Objective-C class data in the process. This may reduce the quality of type information available.
+    //  warning: could not execute support code to read Objective-C class data in the process. This may reduce the quality of type information available.
 
 
     int *rotatedPixels = (int *)calloc(bitMapWidth*bitMapHeight,sizeof(int));
@@ -284,8 +301,8 @@ typedef struct  {
 
 
 
-//  这个排序是没有意义的，可以删去。但是越界情况又出现在了下面一句，说明问题是上面的内存分配问题上
-//  [rotatedPointsList sortUsingSelector:@selector(byxyvalues:)];
+    //  这个排序是没有意义的，可以删去。但是越界情况又出现在了下面一句，说明问题是上面的内存分配问题上
+    //  [rotatedPointsList sortUsingSelector:@selector(byxyvalues:)];
 
     float dataPointsMatrix[_noofpoints][_noofpoints][2];
     memset(dataPointsMatrix,0,_noofpoints*_noofpoints*2*sizeof(float));
@@ -295,8 +312,8 @@ typedef struct  {
     memset(standardPointsMatrix,0,_noofpoints*_noofpoints*2*sizeof(float));
 
 
-//    BOOL whetherCheckedNew[bitMapHeight][bitMapWidth];
-//    memset(whetherCheckedNew,0,bitMapWidth*bitMapHeight*sizeof(BOOL));
+    //    BOOL whetherCheckedNew[bitMapHeight][bitMapWidth];
+    //    memset(whetherCheckedNew,0,bitMapWidth*bitMapHeight*sizeof(BOOL));
 
 
     [self getStandardPointAndDataPoint: linePointListX
@@ -305,10 +322,10 @@ typedef struct  {
                                       : dataPointsMatrix
                                       : bitMapWidth
                                       : bitMapHeight
-//                                      : (BOOL *)whetherCheckedNew
+     //                                      : (BOOL *)whetherCheckedNew
                                       : rotatedPixels];
     free(rotatedPixels);
-//    ======================
+    //    ======================
 
 
     /*
@@ -332,17 +349,17 @@ typedef struct  {
         return @"no proper start point";
     }
 
-//  4.24 check the second line 出现了问题
-//  我认为检查第二行也是没有意义的，所以暂时决定删去
-//    if (![self checkSecondStandardLine: standardPoints
-//                                      : indexOfFirstStandardPointsLine]) {
-//
-//        CGImageRelease(rotatedGraymap);
-//        CGImageRelease(showimg);
-//        CGColorSpaceRelease(rgbcolorspace);
-//        NSLog(@"step6: can not verify the second standard line");
-//        return @"second standard line not verified";
-//    }
+    //  4.24 check the second line 出现了问题
+    //  我认为检查第二行也是没有意义的，所以暂时决定删去
+    //    if (![self checkSecondStandardLine: standardPoints
+    //                                      : indexOfFirstStandardPointsLine]) {
+    //
+    //        CGImageRelease(rotatedGraymap);
+    //        CGImageRelease(showimg);
+    //        CGColorSpaceRelease(rgbcolorspace);
+    //        NSLog(@"step6: can not verify the second standard line");
+    //        return @"second standard line not verified";
+    //    }
 
 
     // 标准点的坐标
@@ -377,28 +394,28 @@ typedef struct  {
     NSLog(@"points3: before arrangement: \n");
     [self printAllPoints:standardPointsMatrix start:indexOfFirstStandardPointsLine  end:indexOfFirstStandardPointsLine + _side + 1];
     [self printAllPoints:dataPointsMatrix start:indexOfFirstStandardPointsLine  end:indexOfFirstStandardPointsLine + _side + 1];
-    
-// arrangement里面究竟做了些什么
-//  [self arrangePoints:xArrayValues : yArrayValues :points :foundStartPoint];
+
+    // arrangement里面究竟做了些什么
+    //  [self arrangePoints:xArrayValues : yArrayValues :points :foundStartPoint];
 
     // 把standardpoint 和 datapoint 合并
     [self arrangePoints0:standardPointsMatrix :dataPointsMatrix];
 
-//==========
-//debug: 检查所有点是否都转进了points
+    //==========
+    //debug: 检查所有点是否都转进了points
     NSLog(@"points3: after arrangement: \n");
     [self printAllPoints:standardPointsMatrix start:indexOfFirstStandardPointsLine  end:indexOfFirstStandardPointsLine + _side + 1];
 
     //将合并后用于decode的点阵转化成array然后显示在decodeshow中
     NSMutableArray<MyPoint *> *allPointsToArray=[self convertToArray:standardPointsMatrix];
     CGImageRef DecodeShowimg;
-//decodeshow 还需改进一下，但是经过transfer之后，点的坐标和形状都发生了改变，所以对不上
+    //decodeshow 还需改进一下，但是经过transfer之后，点的坐标和形状都发生了改变，所以对不上
     DecodeShowimg = [MyImageChecker locateCentres:rotatedGraymap forPoints:allPointsToArray ];
-//=========
+    //=========
 
 
     /*
-    Decode the PointsMatrix
+     Decode the PointsMatrix
      */
 
     NSString *retString = [self getRSDecodeResult:[self getDecodeResult:standardPointsMatrix :indexOfFirstStandardPointsLine]];
@@ -409,9 +426,9 @@ typedef struct  {
 
     times[7] = [[NSDate date] timeIntervalSince1970] * 1000;
     NSLog(@"step8");//end
-//    for(int i=0; i<8; i++) {
-//        NSLog(@"%@ time: %l", TAG, times[i]);
-//    }
+    //    for(int i=0; i<8; i++) {
+    //        NSLog(@"%@ time: %l", TAG, times[i]);
+    //    }
     //free(pixels);
 
 
@@ -661,9 +678,9 @@ typedef struct  {
 - (NSMutableArray<MyPoint *> *) rotatePoints : (NSMutableArray<MyPoint *> *) pointsList
                                    withAngle :(double) angle
                                atRotatedRect :(CGRect) rrect
-                                {
+{
     CGAffineTransform t1;
-// t1=CGAffineTransformMakeTranslation((CGFloat)width/2.0, (CGFloat)height/2.0);
+    // t1=CGAffineTransformMakeTranslation((CGFloat)width/2.0, (CGFloat)height/2.0);
     t1=CGAffineTransformMakeRotation(angle);
 
     CGFloat trx=0.0,try=0.0;  //x轴和y轴的位移量
@@ -671,7 +688,7 @@ typedef struct  {
     if (rrect.origin.x<0) trx = -rrect.origin.x;
     if (rrect.origin.y<0) try = -rrect.origin.y;
 
-//    t1 = CGAffineTransformTranslate(t1, trx, try); //在t1位移的基础上, 平移 t1, t2
+    //    t1 = CGAffineTransformTranslate(t1, trx, try); //在t1位移的基础上, 平移 t1, t2
     NSMutableArray<MyPoint *> * rotatedPointsList=[[NSMutableArray alloc] init];
 
     for (int i=0;i<[pointsList count];i++){
@@ -682,8 +699,8 @@ typedef struct  {
         MyPoint *mypointr=[[MyPoint alloc] initWithCentX:(double)cgpointr.x + trx andCentY:(double)cgpointr.y + try];
         [rotatedPointsList addObject:mypointr];
     }
-//    MyPoint *basePoint=[[MyPoint alloc] initWithCentX:0 andCentY:0];
-//    [rotatedPointsList addObject:basePoint];
+    //    MyPoint *basePoint=[[MyPoint alloc] initWithCentX:0 andCentY:0];
+    //    [rotatedPointsList addObject:basePoint];
 
     return rotatedPointsList;
 }
@@ -699,22 +716,22 @@ typedef struct  {
     CGAffineTransform __transform = CGAffineTransformMakeRotation((CGFloat)angle);
 
 
-//可知旋转是按照原图的（0，0）点旋转的。 新图的边界均有变化
+    //可知旋转是按照原图的（0，0）点旋转的。 新图的边界均有变化
 
     CGRect rotatedRect = CGRectApplyAffineTransform(imgRect, __transform);
 
-//    可以删去
-//    (CGAffineTransform) __transform = (a = 0.96656944077345242, b = 0.25640498466858158, c = -0.25640498466858158, d = 0.96656944077345242, tx = 0, ty = 0)
-//    (CGRect) rotatedRect = (origin = (x = -104.86963872944986, y = 0), size = (width = 467.33317901949454, height = 491.47877052706014))
+    //    可以删去
+    //    (CGAffineTransform) __transform = (a = 0.96656944077345242, b = 0.25640498466858158, c = -0.25640498466858158, d = 0.96656944077345242, tx = 0, ty = 0)
+    //    (CGRect) rotatedRect = (origin = (x = -104.86963872944986, y = 0), size = (width = 467.33317901949454, height = 491.47877052706014))
     //make the rectangle larger
-//    CGFloat orx=rotatedRect.origin.x;
-//    CGFloat ory=rotatedRect.origin.y;
-//    CGFloat wid=rotatedRect.size.width;
-//    CGFloat hei=rotatedRect.size.height;
-//    if (orx<0)orx=1.3*orx;
-//    if (ory<0)ory=1.3*ory;
-//    wid=1.6*wid;
-//    hei=1.6*hei;
+    //    CGFloat orx=rotatedRect.origin.x;
+    //    CGFloat ory=rotatedRect.origin.y;
+    //    CGFloat wid=rotatedRect.size.width;
+    //    CGFloat hei=rotatedRect.size.height;
+    //    if (orx<0)orx=1.3*orx;
+    //    if (ory<0)ory=1.3*ory;
+    //    wid=1.6*wid;
+    //    hei=1.6*hei;
     return rotatedRect;
 }
 
@@ -722,11 +739,11 @@ typedef struct  {
 
 
 -(void)getPointsArrayByGravityCenter :(int *) whetherChecked : (NSMutableArray<MyPoint *> *) pointsList : (int *) pixels
-: (int) bitMapWidth: (int) bitMapHeight{
+                                     : (int) bitMapWidth: (int) bitMapHeight{
 
     NSMutableArray<NSValue *> *mine=[[NSMutableArray<NSValue *> alloc ] init];
 
-//    NSArray<int *> *checklist = [[NSMutableArray alloc] init];
+    //    NSArray<int *> *checklist = [[NSMutableArray alloc] init];
 
     for (int j = 0; j < bitMapWidth; j++) {
         for (int i = 0; i < bitMapHeight; i++) {
@@ -922,7 +939,7 @@ typedef struct  {
 
     NSMutableArray<MyPoint *> * pointsListcopy = pointsList;
 
-//    NSMutableArray<MyPoint*> *pointsListcopy = [[NSMutableArray alloc] init];
+    //    NSMutableArray<MyPoint*> *pointsListcopy = [[NSMutableArray alloc] init];
     //    for(int i = 0; i < len; i++){
     //        pointsListcopy[i] = pointsList[i];
     //     }
@@ -934,7 +951,7 @@ typedef struct  {
 
         MyPoint *midPoint = pointsList[countSelectingPoint];
 
-//        NSLog(@"rotate at %d: (%f, %f)", countSelectingPoint, midPoint.centX, midPoint.centY);
+        //        NSLog(@"rotate at %d: (%f, %f)", countSelectingPoint, midPoint.centX, midPoint.centY);
         //指针走的是没有问题的，但是后面排布之后就有问题了
 
         countSelectingPoint ++;
@@ -945,7 +962,7 @@ typedef struct  {
 
         [pointsListcopy sortUsingSelector: @selector(distanceCompare:)];
 
-//        NSLog(@"rotate sort at %d: (%f, %f) with distance = %f", countSelectingPoint, pointsListcopy[0].centX, pointsListcopy[0].centY, pointsListcopy[0].distance);
+        //        NSLog(@"rotate sort at %d: (%f, %f) with distance = %f", countSelectingPoint, pointsListcopy[0].centX, pointsListcopy[0].centY, pointsListcopy[0].distance);
 
         double fivePoints[5][2];
         for(int i=0; i<5; i++) {
@@ -953,7 +970,7 @@ typedef struct  {
             fivePoints[i][1] = [pointsListcopy[i] centY];
         }
 
-//        NSLog(@"rotate center (%f, %f)", fivePoints[0][0], fivePoints[0][1]);
+        //        NSLog(@"rotate center (%f, %f)", fivePoints[0][0], fivePoints[0][1]);
 
 
         int m = 0;
@@ -986,7 +1003,7 @@ typedef struct  {
                     NSLog(@"rotate center (%f, %f)", midPoint.centX, midPoint.centY);
                     NSLog(@"rotate (%f, %f)(%f,%f)",fivePoints[m][0],fivePoints[m][1],fivePoints[n][0],fivePoints[n][1]);
 
-                     CGImageRelease(rotatePointshow);
+                    CGImageRelease(rotatePointshow);
                     break;
                 }
             }
@@ -1111,23 +1128,23 @@ typedef struct  {
     int indexI = 0;
     int indexJ = 0;
 
-// 为什么另一处类似的用法就没有问题？？我觉得可能是whetherChecked这个指针没有释放，产生了野指针
-//    BOOL whetherCheckednew[bitMapHeight][bitMapWidth];
-//    memset(whetherCheckednew,0,bitMapWidth*bitMapHeight*sizeof(BOOL));
+    // 为什么另一处类似的用法就没有问题？？我觉得可能是whetherChecked这个指针没有释放，产生了野指针
+    //    BOOL whetherCheckednew[bitMapHeight][bitMapWidth];
+    //    memset(whetherCheckednew,0,bitMapWidth*bitMapHeight*sizeof(BOOL));
 
-//    for(int i = 0; i < bitMapHeight; i++){
-//        for(int j = 0; j < bitMapWidth; j++){
-//            whetherCheckednew[i][j] = NO;
-//        }
-//    }
-//    BOOL *whetherChecked = &whetherCheckednew[0][0];
+    //    for(int i = 0; i < bitMapHeight; i++){
+    //        for(int j = 0; j < bitMapWidth; j++){
+    //            whetherCheckednew[i][j] = NO;
+    //        }
+    //    }
+    //    BOOL *whetherChecked = &whetherCheckednew[0][0];
 
-// const int WHITE = 0xFFFFFFFF;
-// const int BLACK = 0x000000FF;
-// pixels 是一个对bitmap横向扫描的数组, 其坐标等于 y * bitmapwidth + x
-// 该部分已知信息，是从下往上逐行扫描的
+    // const int WHITE = 0xFFFFFFFF;
+    // const int BLACK = 0x000000FF;
+    // pixels 是一个对bitmap横向扫描的数组, 其坐标等于 y * bitmapwidth + x
+    // 该部分已知信息，是从下往上逐行扫描的
 
-//    whetherChecked <--> pixels 两者相对应 
+    //    whetherChecked <--> pixels 两者相对应
 
     for (int j = 0; j < bitMapWidth; j++) {
         for (int i = 0; i < bitMapHeight; i++) {
@@ -1142,10 +1159,10 @@ typedef struct  {
                 float centX = (float)j;
 
                 //changed
-//                float centY = (float)(bitMapHeight - 1 - i);
+                //                float centY = (float)(bitMapHeight - 1 - i);
                 float centY = (float)i;
 
-                 //centX和centY代表的是检查点的坐标
+                //centX和centY代表的是检查点的坐标
                 //the second half check is to make segment line into one
                 if (firstRound || (centX - linePoints[0][0][0] < 0.1 * interval)) {
                     linePoints[indexI][indexJ][0] = centX;
@@ -1175,7 +1192,7 @@ typedef struct  {
                             if (indexI < _noofpoints && ((linePoints[indexI][m][0] == linePoints[_noofpoints-1][_noofpoints-1][0] &&
                                                           linePoints[indexI][m][1] == linePoints[_noofpoints-1][_noofpoints-1][1])
                                                          || (m == 0 && centY > linePoints[indexI][m][1])) && indexI == _side+1) {
-//                                NSLog(@"at Line m=%d indexI=%d x,y= %f,%f",m,indexI,centX,centY);
+                                //                                NSLog(@"at Line m=%d indexI=%d x,y= %f,%f",m,indexI,centX,centY);
                                 linePoints[indexI][m][0] = centX;
                                 linePoints[indexI][m][1] = centY;
                             } else {
@@ -1235,7 +1252,7 @@ typedef struct  {
 
         lineChange = NO;
     }
-//    NSLog(@"countXY=%d",countXYValues);
+    //    NSLog(@"countXY=%d",countXYValues);
 }
 
 
@@ -1276,10 +1293,10 @@ typedef struct  {
         double disFtoT = hypot((points[_side+1][foundStartPoint + i][0]     - points[_side+1][foundStartPoint + i + 2][0]),
                                (points[_side+1][foundStartPoint + i][1]     - points[_side+1][foundStartPoint + i + 2][1]));
 
-//        NSLog(@"FS=%f ST=%f FT=%f",disFtoS,disStoT,disFtoT);
+        //        NSLog(@"FS=%f ST=%f FT=%f",disFtoS,disStoT,disFtoT);
 
         double tempRate = disFtoS / disStoT;
-//        NSLog(@"dis ratio=%f curve ratio=%f",tempRate,(disFtoT / (disFtoS + disStoT)));
+        //        NSLog(@"dis ratio=%f curve ratio=%f",tempRate,(disFtoT / (disFtoS + disStoT)));
         if (PAIRMAX < tempRate || tempRate < PAIRMIN || (disFtoT / (disFtoS + disStoT)) < PAIRMIN) {
             return NO;
         }
@@ -1342,7 +1359,7 @@ typedef struct  {
     [perspectiveTransform transformPoints:xValues yValues:yValues pointsLen:90];
     [perspectiveTransform transformPoints:xArrayValues yValues:yArrayValues pointsLen:225];
 
-//    把转换完成的值返回
+    //    把转换完成的值返回
     for (int j=0; j <_noofpoints; j++) {
         points[0][j][0] = xValues[j];
         points[0][j][1] = yValues[j];
@@ -1357,12 +1374,12 @@ typedef struct  {
         }
     }
 
-//    是不是有点问题在于把坐标总原本没有点的（0，0）也给转换了坐标导致出现错误
-//    UNDO 可以在这个位置看一下转换坐标的标准点是否有问题
-//    NSMutableArray<MyPoint *> *toarray=[self convertToArray:points];
-//    CGImageRef newshowimg;
-//    newshowimg=[MyImageChecker locateCentres:grayMap1 forPoints:toarray ];
-//
+    //    是不是有点问题在于把坐标总原本没有点的（0，0）也给转换了坐标导致出现错误
+    //    UNDO 可以在这个位置看一下转换坐标的标准点是否有问题
+    //    NSMutableArray<MyPoint *> *toarray=[self convertToArray:points];
+    //    CGImageRef newshowimg;
+    //    newshowimg=[MyImageChecker locateCentres:grayMap1 forPoints:toarray ];
+    //
     memcpy(point1,points, _noofpoints*_noofpoints*2);
     memcpy(point2,datapoints, _noofpoints*_noofpoints*2);
 }
@@ -1427,11 +1444,11 @@ typedef struct  {
                     NSLog(@"bad data point, %d | %f | %f",  indexI, xArrayValues[i], points[0][m][0]);
                 } else if (indexI < _noofpoints && (pointEqual || (m == 0 && yArrayValues[i] > points[indexI][m][1]))){
                     printf("good points (%f, %f)\n", xArrayValues[i], yArrayValues[i]);
-//                    NSLog(@"good data point: m=%d xarr=%f |yarr= %f | tempIndexI=%f  | p[m,0]=%f | p[m,1]=%f| lap[0]=%f| lap[1]=%f",m, xArrayValues[i], yArrayValues[i],tempIndexI, points[indexI][m][0], points[indexI][m][1],points[_noofpoints-1][_noofpoints-1][0],points[_noofpoints-1][_noofpoints-1][0]);
+                    //                    NSLog(@"good data point: m=%d xarr=%f |yarr= %f | tempIndexI=%f  | p[m,0]=%f | p[m,1]=%f| lap[0]=%f| lap[1]=%f",m, xArrayValues[i], yArrayValues[i],tempIndexI, points[indexI][m][0], points[indexI][m][1],points[_noofpoints-1][_noofpoints-1][0],points[_noofpoints-1][_noofpoints-1][0]);
                     points[indexI][m][0] = xArrayValues[i];
                     points[indexI][m][1] = yArrayValues[i];
                 } else {
-//                    NSLog(@"not proper points: %f | %f | %f | %f | %f |m=%d | equal=%d", xArrayValues[i], yArrayValues[i], tempIndexI, points[indexI][m][0], points[indexI][m][1],m,pointEqual);
+                    //                    NSLog(@"not proper points: %f | %f | %f | %f | %f |m=%d | equal=%d", xArrayValues[i], yArrayValues[i], tempIndexI, points[indexI][m][0], points[indexI][m][1],m,pointEqual);
                 }
                 break;
             }
@@ -1455,7 +1472,7 @@ typedef struct  {
                 ||(points[_side+1][j][0] == points[_noofpoints-1][_noofpoints-1][0]
                    && points[_side+1][j][1] == points[_noofpoints-1][_noofpoints-1][1])) {
                     retString = [retString stringByAppendingString: @"*"];
-                     continue;
+                    continue;
                 }
 
             //from experience
@@ -1545,14 +1562,14 @@ typedef struct  {
     //guess
     findTwoOnePattern=[[findTwoOnePattern
                         stringByReplacingOccurrencesOfString:sequence withString:@""]
-                        stringByReplacingOccurrencesOfString:@"M" withString: @""];
+                       stringByReplacingOccurrencesOfString:@"M" withString: @""];
 
-//  findTwoOnePattern=[[[findTwoOnePattern  stringByReplacingOccurrencesOfString:@"a" withString: @"3"] stringByReplacingOccurrencesOfString:@"b" withString:@"2"] stringByReplacingOccurrencesOfString:@"*" withString:@"1"];
-//
-//
-//    findTwoOnePattern=[[findTwoOnePattern  stringByReplacingOccurrencesOfString:@"a" withString: @"3"] stringByReplacingOccurrencesOfString:@"b" withString:@"2"];
+    //    findTwoOnePattern=[[[findTwoOnePattern  stringByReplacingOccurrencesOfString:@"a" withString: @"3"] stringByReplacingOccurrencesOfString:@"b" withString:@"2"] stringByReplacingOccurrencesOfString:@"*" withString:@"1"];
+    //
+    //
+    //    findTwoOnePattern=[[findTwoOnePattern  stringByReplacingOccurrencesOfString:@"a" withString: @"3"] stringByReplacingOccurrencesOfString:@"b" withString:@"2"];
 
-//    NSLog(@"Pattern: guessed %@", findTwoOnePattern);
+    //    NSLog(@"Pattern: guessed %@", findTwoOnePattern);
 
     if ([findTwoOnePattern containsString:@"a"] || [findTwoOnePattern containsString:@"b"] || [findTwoOnePattern containsString:@"*"]){
         return @"Error reading codes";
@@ -1574,14 +1591,13 @@ typedef struct  {
 
     int result[_datasize];
 
-//    int type = com_example_testdecode_RSDecoder_decodeRS(input, result);
-//    if(type != 0) {
-//        return @"-3";
-//    }
-    
+    int type = com_example_testdecode_RSDecoder_decodeRS(input, result);
+    if(type != 0) {
+        return @"-3";
+    }
+
     return [self getRC4Decode:result withKey:KEY];
 }
-
 
 - (NSString *) getRC4Decode : (int[_datasize]) data withKey: (char[KEYLEN]) key{
     int srclen=_datasize;
@@ -1601,15 +1617,19 @@ typedef struct  {
 
     unsigned char result[bytelen];
 
-//    RC4 rc4;
-//    rc4_init(&rc4,key,KEYLEN);
-//    rc4_crypt(&rc4, result, bytechar, bytelen);
+    RC4 rc4;
+    rc4_init(&rc4,key,KEYLEN);
+    rc4_crypt(&rc4, result, bytechar, bytelen);
 
     int bits[bytelen*8];
     int bitlen=transfer_bits_per_pos((unsigned char *)result, bytelen,8, bits, 1);
     long long ret=bin2lldec(bits,bitlen);
 
+
+
+
     return [NSString stringWithFormat:@"result: %lld",ret];
+
 }
 
 long long bin2lldec(int *bin, int len){

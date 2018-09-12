@@ -19,12 +19,11 @@ class UserViewController: UIViewController,UITextFieldDelegate {
     var paused: Bool = false
 
 
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.password.delegate = self;
         self.email.delegate = self;
+        DecodeUtils.test();
 
 //        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "sunset.jpg")!)
         // Do any additional setup after loading the view.

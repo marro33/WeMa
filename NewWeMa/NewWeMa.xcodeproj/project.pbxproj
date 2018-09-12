@@ -13,9 +13,11 @@
 		790D52C72143A58C0015651C /* MyImageChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 790D52BF2143A58C0015651C /* MyImageChecker.m */; };
 		790D52C92143A58C0015651C /* DecodeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 790D52C52143A58C0015651C /* DecodeUtils.m */; };
 		790D52CA2143A58C0015651C /* MyPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 790D52C62143A58C0015651C /* MyPoint.m */; };
-		790D5306214404C50015651C /* RC4.m in Sources */ = {isa = PBXBuildFile; fileRef = 790D5305214404C50015651C /* RC4.m */; };
 		790D530B2146530E0015651C /* myCodeObjcV.c in Sources */ = {isa = PBXBuildFile; fileRef = 790D530A2146530E0015651C /* myCodeObjcV.c */; };
 		790D530D2146A7EB0015651C /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790D530C2146A7EB0015651C /* UserViewController.swift */; };
+		79693D2B2147B82E00C6D194 /* MyZXPlanarYUVLuminanceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 79693D2A2147B82E00C6D194 /* MyZXPlanarYUVLuminanceSource.m */; };
+		79693D2E2148A86C00C6D194 /* ImageBufferHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 79693D2D2148A86C00C6D194 /* ImageBufferHandler.m */; };
+		79693D3121490E0300C6D194 /* rc4.c in Sources */ = {isa = PBXBuildFile; fileRef = 79693D2F21490E0300C6D194 /* rc4.c */; };
 		798DFA902142E976007A30B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798DFA8F2142E976007A30B2 /* AppDelegate.swift */; };
 		798DFA952142E976007A30B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 798DFA932142E976007A30B2 /* Main.storyboard */; };
 		798DFA972142E977007A30B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 798DFA962142E977007A30B2 /* Assets.xcassets */; };
@@ -60,10 +62,15 @@
 		790D52C42143A58C0015651C /* DecodeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DecodeUtils.h; path = DecodeUtils/DecodeUtils.h; sourceTree = SOURCE_ROOT; };
 		790D52C52143A58C0015651C /* DecodeUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DecodeUtils.m; path = DecodeUtils/DecodeUtils.m; sourceTree = SOURCE_ROOT; };
 		790D52C62143A58C0015651C /* MyPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyPoint.m; path = DecodeUtils/MyPoint.m; sourceTree = SOURCE_ROOT; };
-		790D5304214404C50015651C /* RC4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RC4.h; sourceTree = "<group>"; };
-		790D5305214404C50015651C /* RC4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RC4.m; sourceTree = "<group>"; };
 		790D530A2146530E0015651C /* myCodeObjcV.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = myCodeObjcV.c; sourceTree = "<group>"; };
 		790D530C2146A7EB0015651C /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		79693D292147B82E00C6D194 /* MyZXPlanarYUVLuminanceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyZXPlanarYUVLuminanceSource.h; sourceTree = "<group>"; };
+		79693D2A2147B82E00C6D194 /* MyZXPlanarYUVLuminanceSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyZXPlanarYUVLuminanceSource.m; sourceTree = "<group>"; };
+		79693D2C2148A86C00C6D194 /* ImageBufferHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageBufferHandler.h; sourceTree = "<group>"; };
+		79693D2D2148A86C00C6D194 /* ImageBufferHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageBufferHandler.m; sourceTree = "<group>"; };
+		79693D2F21490E0300C6D194 /* rc4.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rc4.c; sourceTree = "<group>"; };
+		79693D3021490E0300C6D194 /* rc4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rc4.h; path = ../../../../../Downloads/DecodeUtils/rc4.h; sourceTree = "<group>"; };
+		79693D3221490FA100C6D194 /* com_example_testdecode_RSDecoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = com_example_testdecode_RSDecoder.h; sourceTree = "<group>"; };
 		798DFA8C2142E976007A30B2 /* NewWeMa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewWeMa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		798DFA8F2142E976007A30B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		798DFA942142E976007A30B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -102,16 +109,21 @@
 		790D52BD2143A57D0015651C /* DecodeUtils */ = {
 			isa = PBXGroup;
 			children = (
+				79693D3221490FA100C6D194 /* com_example_testdecode_RSDecoder.h */,
+				79693D292147B82E00C6D194 /* MyZXPlanarYUVLuminanceSource.h */,
+				79693D2A2147B82E00C6D194 /* MyZXPlanarYUVLuminanceSource.m */,
 				790D52C02143A58C0015651C /* dataconstants.h */,
 				790D52C42143A58C0015651C /* DecodeUtils.h */,
 				790D52C52143A58C0015651C /* DecodeUtils.m */,
 				790D52C32143A58C0015651C /* MyImageChecker.h */,
 				790D52BF2143A58C0015651C /* MyImageChecker.m */,
+				79693D2F21490E0300C6D194 /* rc4.c */,
+				79693D3021490E0300C6D194 /* rc4.h */,
 				790D52BE2143A58C0015651C /* MyPoint.h */,
 				790D52C62143A58C0015651C /* MyPoint.m */,
-				790D5304214404C50015651C /* RC4.h */,
-				790D5305214404C50015651C /* RC4.m */,
 				790D530A2146530E0015651C /* myCodeObjcV.c */,
+				79693D2C2148A86C00C6D194 /* ImageBufferHandler.h */,
+				79693D2D2148A86C00C6D194 /* ImageBufferHandler.m */,
 			);
 			path = DecodeUtils;
 			sourceTree = "<group>";
@@ -144,11 +156,11 @@
 				798DFA8F2142E976007A30B2 /* AppDelegate.swift */,
 				798DFAAF2142EF0C007A30B2 /* ViewController.swift */,
 				790D530C2146A7EB0015651C /* UserViewController.swift */,
+				0B93A6A0214393F300E4C811 /* QrScanViewController.swift */,
 				798DFA932142E976007A30B2 /* Main.storyboard */,
 				798DFA962142E977007A30B2 /* Assets.xcassets */,
 				798DFA982142E977007A30B2 /* LaunchScreen.storyboard */,
 				798DFA9B2142E977007A30B2 /* Info.plist */,
-				0B93A6A0214393F300E4C811 /* QrScanViewController.swift */,
 				0B6EE2D021439E92005BC58A /* barreader.h */,
 				0B6EE2D121439E92005BC58A /* barreader.m */,
 				0B6EE2CF21439E92005BC58A /* NewWeMa-Bridging-Header.h */,
@@ -281,14 +293,16 @@
 			files = (
 				798DFAB02142EF0C007A30B2 /* ViewController.swift in Sources */,
 				790D530D2146A7EB0015651C /* UserViewController.swift in Sources */,
+				79693D2E2148A86C00C6D194 /* ImageBufferHandler.m in Sources */,
 				0B93A6A1214393F300E4C811 /* QrScanViewController.swift in Sources */,
+				79693D3121490E0300C6D194 /* rc4.c in Sources */,
 				790D530B2146530E0015651C /* myCodeObjcV.c in Sources */,
 				790D52C92143A58C0015651C /* DecodeUtils.m in Sources */,
 				790D52C72143A58C0015651C /* MyImageChecker.m in Sources */,
 				790D52CA2143A58C0015651C /* MyPoint.m in Sources */,
-				790D5306214404C50015651C /* RC4.m in Sources */,
 				0B6EE2D221439E92005BC58A /* barreader.m in Sources */,
 				798DFA902142E976007A30B2 /* AppDelegate.swift in Sources */,
+				79693D2B2147B82E00C6D194 /* MyZXPlanarYUVLuminanceSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

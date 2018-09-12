@@ -3,3 +3,5 @@
 //
 #import "barreader.h"
 #import "DecodeUtils.h"
+#import "MyZXPlanarYUVLuminanceSource.h"
+#import "ImageBufferHandler.h"
