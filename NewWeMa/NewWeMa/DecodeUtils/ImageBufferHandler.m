@@ -13,9 +13,9 @@
 
 @implementation ImageBufferHandler
 
-+ (NSString*) handleTheBuffer:(CVImageBufferRef) imageBuffer {
++ (NSString*) handleTheBuffer:(CVImageBufferRef) imageBuffer :(CGRect) rect{
 
-    NSLog(@"handling the buffer");
+
     //lock the base address
     CVPixelBufferLockBaseAddress(imageBuffer, 0);
     size_t width = CVPixelBufferGetWidth(imageBuffer);
@@ -47,6 +47,10 @@
     CVPixelBufferUnlockBaseAddress(imageBuffer, 0);
     //        NSLog(@"%@",@"SS");
     free(yuvFrame);
+
+
+
+    
 
 
     MyZXPlanarYUVLuminanceSource *source = [[MyZXPlanarYUVLuminanceSource alloc] initWithYuvData:tempData

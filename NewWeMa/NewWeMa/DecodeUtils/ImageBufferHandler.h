@@ -11,6 +11,6 @@
 
 @interface ImageBufferHandler : NSObject
 
-+(NSString*) handleTheBuffer:(CVImageBufferRef) imageBuffer;
++(NSString*) handleTheBuffer:(CVImageBufferRef) imageBuffer :(CGRect) rect;
 
 @end

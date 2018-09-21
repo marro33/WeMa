@@ -11,6 +11,9 @@ import UIKit
 import AVFoundation
 
 
+
+
+
 //DELEGATE: AVCaptureMetaDataOutputBelegate
 
 class QrScanViewController: UIViewController,  AVCaptureVideoDataOutputSampleBufferDelegate {
@@ -26,7 +29,8 @@ class QrScanViewController: UIViewController,  AVCaptureVideoDataOutputSampleBuf
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
     var isReading: Bool = false
-    
+//    var scanRect: CGRect
+
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +38,9 @@ class QrScanViewController: UIViewController,  AVCaptureVideoDataOutputSampleBuf
         btnStartStop.layer.cornerRadius = 5;
         captureSession = nil;
         lblString.text = "Barcode discription...";
+
+
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -89,7 +96,6 @@ class QrScanViewController: UIViewController,  AVCaptureVideoDataOutputSampleBuf
 //        captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
 //        captureSession?.startRunning()
 
-
         //set videoDataOutput
         do{
             let videoDataOutput = AVCaptureVideoDataOutput()
@@ -120,36 +126,33 @@ class QrScanViewController: UIViewController,  AVCaptureVideoDataOutputSampleBuf
 //        let result = ImageBufferHandler.handleTheBuffer(sampleBuffer as! CVImageBuffer)
 
         let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
-        if let result = ImageBufferHandler.handleTheBuffer(imageBuffer){
-//            lblString.text = result
-//            btnStartStop.setTitle("Start", for: .normal)
-//            self.performSelector(onMainThread: #selector(stopReading), with: nil, waitUntilDone: false)
-//            isReading = false;
-            print("result" + result)
+
+
+        let width = UIScreen.main.bounds.size.width
+        let height = UIScreen.main.bounds.size.height
+
+        let scanRect_width = width - 100
+        let scanRect_height = scanRect_width
+        let scanRect_OrgX = (width - scanRect_width)/2
+        let scanRect_OrgY = (height - scanRect_height)/2
+
+        var scanRect = CGRect.init(x: scanRect_OrgX, y: scanRect_OrgY, width: width, height: height)
+
+        let rect = videoPreviewLayer.metadataOutputRectOfInterest(for: scanRect)
+        if let result = ImageBufferHandler.handleTheBuffer(imageBuffer, rect){
+            self.process(result)
         }
     }
 
-    func handle1(_ sampleBuffer: CMSampleBuffer){
-//        let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
-        let imageBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)!
-        let ciimage : CIImage = CIImage(cvPixelBuffer: imageBuffer)
-        let image : UIImage = self.convert(cmage: ciimage)
-
-//        ZXLuminanceSource *source = [[ZXCGImageLuminanceSource alloc] initWithCGImage:qrImage.CGImage];
-//        ZXBinaryBitmap *bitmap = [ZXBinaryBitmap binaryBitmapWithBinarizer:[ZXHybridBinarizer binarizerWithSource:source]];
-        let source = ZXCGImageLuminanceSource.init(cgImage: image.cgImage)
-        let bitmap = ZXBinaryBitmap.binaryBitmap(with: ZXHybridBinarizer.init(source: source))
-
-        let decoder = DecodeUtils.init(side: 5, andDataSize: 10)
-
-        if let result = decoder?.decodeBitMap(bitmap as! ZXBinaryBitmap){
-            lblString.text = result
-            btnStartStop.setTitle("Start", for: .normal)
+    func process(_ result: String){
+        if(result.hasPrefix("result: ")){
             self.performSelector(onMainThread: #selector(stopReading), with: nil, waitUntilDone: false)
             isReading = false;
+            lblString.text = result
+            btnStartStop.setTitle("Start", for: .normal)
         }
-
     }
+
 
     func convert(cmage:CIImage) -> UIImage
     {

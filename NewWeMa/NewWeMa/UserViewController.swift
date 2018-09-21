@@ -62,15 +62,15 @@ class UserViewController: UIViewController,UITextFieldDelegate {
 
 
 
-        var emailtext = email.text  as! String
+        var emailtext = email.text as! String
         if email.text == ""{
             emailtext = "unspecified"
         }
-        var passwordtext = password.text  as! String
+        var passwordtext = password.text as! String
         if password.text == ""{
             passwordtext = "unspecified"
         }
-        var customerCode = costomer_code.text  as! String
+        var customerCode = costomer_code.text as! String
         if customerCode == ""{
             customerCode = "unspecified"
         }
@@ -106,7 +106,6 @@ class UserViewController: UIViewController,UITextFieldDelegate {
                     //let database = try Connection("users.sqlite")
                     //let usertable = Table("users")
                     /*
-
                      note it is using video.sift var
                      */
                     //  let insert = userstable.insert(dbpassword <- passwordtext, dbemail <- emailtext,status <- "logined")
@@ -118,12 +117,8 @@ class UserViewController: UIViewController,UITextFieldDelegate {
             if let json = response.result.value {
                 print("JSON: \(json)") // serialized json response
                 if "\(json)" == "logined"{
-
                 }
-
-
             }
-
         }
     }
 
