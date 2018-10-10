@@ -89,8 +89,6 @@ typedef struct  {
     //    ZXBinarizer *binerizer = [[ZXBinarizer alloc]initWithSource:<#(ZXLuminanceSource *)#>]
     //
     //    [ZXBinaryBitmap binaryBitmapWithBinarizer:<#(ZXBinarizer *)#>
-
-
 }
 
 - (NSString *) decodeBitMap : (ZXBinaryBitmap *) bitmap {
@@ -1324,7 +1322,7 @@ typedef struct  {
     int end = (int)(start+INTERVAL*(_side+1));
 
     ZXPerspectiveTransform *perspectiveTransform =
-    [ZXPerspectiveTransform quadrilateralToQuadrilateral: points[0][foundStartPoint][0]
+    [ZXPerspectiveTransform quadrilateralToQuadrilateral: points[0] [foundStartPoint][0]
                                                       y0: points[0][foundStartPoint][1]
                                                       x1:points[0][foundStartPoint+_side+1][0]
                                                       y1:points[0][foundStartPoint+_side+1][1]

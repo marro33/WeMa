@@ -49,15 +49,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.60000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gLz-uK-YIL">
-                                <rect key="frame" x="20" y="84" width="335" height="301.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gLz-uK-YIL">
+                                <rect key="frame" x="20" y="164" width="335" height="335"/>
                                 <color key="backgroundColor" red="0.31962817080208161" green="0.34172044099489374" blue="0.57363308565265636" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="gLz-uK-YIL" secondAttribute="height" multiplier="1:0.9" id="JgK-i7-Pro"/>
+                                    <constraint firstAttribute="width" secondItem="gLz-uK-YIL" secondAttribute="height" multiplier="1:1" id="JgK-i7-Pro"/>
                                 </constraints>
                             </view>
                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JmC-cC-4hB">
-                                <rect key="frame" x="20" y="418.5" width="335" height="43"/>
+                                <rect key="frame" x="20" y="532" width="335" height="43"/>
                                 <color key="backgroundColor" red="0.86666666670000003" green="0.062745098040000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="iyW-tg-qCu"/>
@@ -71,7 +71,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="7oq-h2-kFx">
-                                <rect key="frame" x="20" y="491.5" width="335" height="45"/>
+                                <rect key="frame" x="20" y="605" width="335" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="qna-SO-178"/>
                                 </constraints>
@@ -86,7 +86,7 @@
                             <constraint firstItem="JmC-cC-4hB" firstAttribute="top" secondItem="gLz-uK-YIL" secondAttribute="bottom" constant="33" id="Jkm-NP-7Hw"/>
                             <constraint firstItem="7oq-h2-kFx" firstAttribute="trailing" secondItem="JmC-cC-4hB" secondAttribute="trailing" id="U2r-t0-ME8"/>
                             <constraint firstItem="7oq-h2-kFx" firstAttribute="top" secondItem="JmC-cC-4hB" secondAttribute="bottom" constant="30" id="bUU-9T-BjI"/>
-                            <constraint firstItem="gLz-uK-YIL" firstAttribute="top" secondItem="WeB-3p-pZi" secondAttribute="bottom" constant="20" id="pvr-Ix-0RO"/>
+                            <constraint firstItem="gLz-uK-YIL" firstAttribute="top" secondItem="WeB-3p-pZi" secondAttribute="bottom" constant="100" id="pvr-Ix-0RO"/>
                             <constraint firstItem="gLz-uK-YIL" firstAttribute="leading" secondItem="2Ri-L7-iYV" secondAttribute="leading" constant="20" id="stA-XN-guG"/>
                             <constraint firstItem="JmC-cC-4hB" firstAttribute="leading" secondItem="gLz-uK-YIL" secondAttribute="leading" id="tlg-zp-TVI"/>
                             <constraint firstItem="JmC-cC-4hB" firstAttribute="trailing" secondItem="gLz-uK-YIL" secondAttribute="trailing" id="vOk-vc-37Y"/>

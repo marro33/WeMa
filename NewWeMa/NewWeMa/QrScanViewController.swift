@@ -11,9 +11,6 @@ import UIKit
 import AVFoundation
 
 
-
-
-
 //DELEGATE: AVCaptureMetaDataOutputBelegate
 
 class QrScanViewController: UIViewController,  AVCaptureVideoDataOutputSampleBufferDelegate {
@@ -34,12 +31,12 @@ class QrScanViewController: UIViewController,  AVCaptureVideoDataOutputSampleBuf
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewPreview.layer.cornerRadius = 5;
-        btnStartStop.layer.cornerRadius = 5;
+//        viewPreview.layer.cornerRadius = 5;
+//        btnStartStop.layer.cornerRadius = 5;
         captureSession = nil;
         lblString.text = "Barcode discription...";
 
-
+        
 
     }
     
