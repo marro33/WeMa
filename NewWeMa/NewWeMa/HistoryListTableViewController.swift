@@ -15,19 +15,15 @@ class HistoryListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         initUI()
+        loadHistoryListItems()
 
-        //  loadModel
+    }
+
+    func loadHistoryListItems(){
         dataModel = DataModel()
-//        dataModel.appendLists(list: HistoryList(result: "liming"))
+//                dataModel.appendLists(list: HistoryList(result: "liming"))
         lists = dataModel.lists
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
 
@@ -37,6 +33,18 @@ class HistoryListTableViewController: UITableViewController {
     }
 
 
+
+    // MARK: - IBFunction
+
+    @IBAction func cancel(){
+        navigationController?.popViewController(animated: true)
+    }
+
+
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == 
+//    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -44,10 +52,15 @@ class HistoryListTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        performSegue(withIdentifier: "showResult", sender: nil)
 //    }
+
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+
+        performSegue(withIdentifier: "showResult", sender: nil)
+    }
+
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -72,5 +85,9 @@ class HistoryListTableViewController: UITableViewController {
             return UITableViewCell(style: .default, reuseIdentifier: cellIdentifier)
         }
     }
+
+
+
+
 
 }

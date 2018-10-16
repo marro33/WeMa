@@ -10,33 +10,58 @@
 import UIKit
 import AVFoundation
 
-
 //DELEGATE: AVCaptureMetaDataOutputBelegate
 
 class QrScanViewController: UIViewController,  AVCaptureVideoDataOutputSampleBufferDelegate {
     
-    @IBOutlet weak var viewPreview: UIView!
-    //@IBOutlet weak var viewPreview: UIView!
-    //@IBOutlet weak var lblString: UILabel!
-    
+//    @IBOutlet weak var viewPreview: UIView!
     @IBOutlet weak var lblString: UILabel!
-   
     @IBOutlet weak var btnStartStop: UIButton!
+
+
     // @IBOutlet weak var btnStartStop: UIButton!
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
     var isReading: Bool = false
-//    var scanRect: CGRect
+    var scanRect: CGRect!
 
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 //        viewPreview.layer.cornerRadius = 5;
 //        btnStartStop.layer.cornerRadius = 5;
+        self.UIinit()
         captureSession = nil;
         lblString.text = "Barcode discription...";
+    }
 
-        
+    func UIinit(){
+//        navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.title = "微码溯源"
+
+        self.view.backgroundColor = UIColor.gray
+
+
+        // 扫描框范围定义
+        let width = UIScreen.main.bounds.size.width
+        let height = UIScreen.main.bounds.size.height
+        let scanRectWidth = width - 100
+        let scanRectHeight = scanRectWidth
+        let scanRectX = (width - scanRectWidth) / 2
+        let scanRectY = (height - scanRectHeight) / 2
+        scanRect = CGRect.init(x: scanRectX, y: scanRectY, width: scanRectWidth, height: scanRectHeight)
+
+//         return buttorn
+//        let btn = UIButton.init(type: UIButtonType.custom)
+//        btn.frame = CGRect.init(x: 15, y: 80, width: 30, height: 30)
+////        btn.setImage(UIImage.init(named: "ic_back.png"), for: UIControlState.normal)
+//        btn.setTitleColor(UIColor.white, for: UIControlState.normal)
+//        btn.setTitle("退出", for: UIControlState.normal)
+
+//        btn.addTarget(self, action: , for: <#T##UIControlEvents#>)
+//        self.view.addSubview(btn)
+//        self.navigationController?.setNavigationBarHidden(true, animated: false)
+
 
     }
     
@@ -62,9 +87,32 @@ class QrScanViewController: UIViewController,  AVCaptureVideoDataOutputSampleBuf
         }
         isReading = !isReading
     }
+
     
     // MARK: - Custom Method
     func startReading() -> Bool {
+
+        //不透明外框
+        let maskview = UIView.init(frame: self.view.bounds)
+        maskview.backgroundColor = UIColor.black.withAlphaComponent(0.1)
+        self.view.addSubview(maskview)
+        self.view.sendSubview(toBack: maskview)
+
+
+        let imageView = UIImageView.init(image: UIImage.init(named: "ic_scanBg.png"))
+        imageView.frame = scanRect
+        self.view.addSubview(imageView)
+        //扫描动画
+//        let animation = CABasicAnimation.init(keyPath: "transform.scale")
+//        animation.duration = 0.25
+//        animation.fromValue = 0
+//        animation.toValue = 1
+//        animation.delegate = self as! CAAnimationDelegate
+//        imageView.layer.add(animation, forKey: nil)
+
+
+        //扫描显示层
+
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         do {
             let input = try AVCaptureDeviceInput(device: captureDevice)
@@ -76,33 +124,18 @@ class QrScanViewController: UIViewController,  AVCaptureVideoDataOutputSampleBuf
             print(error)
             return false
         }
-        
+
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         videoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
-        videoPreviewLayer.frame = viewPreview.layer.bounds
-        viewPreview.layer.addSublayer(videoPreviewLayer)
-        
-//        /* Check for metadata */
-//        let captureMetadataOutput = AVCaptureMetadataOutput()
-//        captureSession?.addOutput(captureMetadataOutput)
-//        captureMetadataOutput.metadataObjectTypes = captureMetadataOutput.availableMetadataObjectTypes
-//        print(captureMetadataOutput.availableMetadataObjectTypes)
-//
-//        //set delegate
-//
-//        captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-//        captureSession?.startRunning()
+        videoPreviewLayer.frame = self.view.frame
+        self.view.layer.insertSublayer(videoPreviewLayer, at: 0)
 
-        //set videoDataOutput
         do{
             let videoDataOutput = AVCaptureVideoDataOutput()
             videoDataOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey as AnyHashable as! String: NSNumber(value: kCVPixelFormatType_420YpCbCr8BiPlanarFullRange)]
             videoDataOutput.alwaysDiscardsLateVideoFrames = true
             let queue = DispatchQueue(label: "vedioDataOutputQueue")
             videoDataOutput.setSampleBufferDelegate(self, queue: queue)
-//            guard captureSession.canAddOutput(videoDataOutput) else {
-//                fatalError()
-//            }
             captureSession?.addOutput(videoDataOutput)
             captureSession?.startRunning()
         }
@@ -118,15 +151,13 @@ class QrScanViewController: UIViewController,  AVCaptureVideoDataOutputSampleBuf
 
     func captureOutput(_ output: AVCaptureOutput, didOutputSampleBuffer sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection){
         print("get image")
-//        self.handle1(sampleBuffer)
-
-//        let result = ImageBufferHandler.handleTheBuffer(sampleBuffer as! CVImageBuffer)
 
         let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
 
-
         let width = UIScreen.main.bounds.size.width
         let height = UIScreen.main.bounds.size.height
+
+        print(width, height)
 
         let scanRect_width = width - 100
         let scanRect_height = scanRect_width
@@ -136,6 +167,7 @@ class QrScanViewController: UIViewController,  AVCaptureVideoDataOutputSampleBuf
         var scanRect = CGRect.init(x: scanRect_OrgX, y: scanRect_OrgY, width: width, height: height)
 
         let rect = videoPreviewLayer.metadataOutputRectOfInterest(for: scanRect)
+
         if let result = ImageBufferHandler.handleTheBuffer(imageBuffer, rect){
             self.process(result)
         }

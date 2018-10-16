@@ -13,9 +13,7 @@
 
 @implementation ImageBufferHandler
 
-+ (NSString*) handleTheBuffer:(CVImageBufferRef) imageBuffer :(CGRect) rect{
-
-
++ (NSString*) handleTheBuffer:(CVImageBufferRef) imageBuffer :(CGRect) interestRect{
     //lock the base address
     CVPixelBufferLockBaseAddress(imageBuffer, 0);
     size_t width = CVPixelBufferGetWidth(imageBuffer);
@@ -39,27 +37,40 @@
     int tempDataSize = yuvSize / sizeof(int8_t);
     int8_t* tempData = (int8_t*)malloc(yuvSize);
 
-    //        NSLog(@"temmp %d",yuvSize);
+
     NSLog(@"tempd: %d + %d",tempData,tempDataSize);
     memcpy(tempData, yuvFrame, yuvSize);
 
-    //        NSLog(@"299 %zu + %zu", width, height);
+//    _width = width;
+//    _height = height;
+
     CVPixelBufferUnlockBaseAddress(imageBuffer, 0);
     //        NSLog(@"%@",@"SS");
     free(yuvFrame);
 
 
+//    CGRect interestRect = [_layer metadataOutputRectOfInterestForRect:_scanRect];
+
+
+    int dstLeftT = (int)(interestRect.origin.x*width);
+    int dstTopT = (int)(interestRect.origin.y*height);
+    int dstWidthT = (int)(interestRect.size.width*width);
+    int dstHeightT = (int)(interestRect.size.height*height);
 
     
 
+    NSLog(@"#:%d + %d + %d + %d",dstLeftT,dstTopT,dstWidthT,dstHeightT);
+
+
+    //在这一步处理图像的时候，需要了解扫描框的具体大小但是明显有错误
 
     MyZXPlanarYUVLuminanceSource *source = [[MyZXPlanarYUVLuminanceSource alloc] initWithYuvData:tempData
                                                         yuvDataLen:tempDataSize dataWidth:(int)width
                                                         dataHeight:(int)height
                                                               left:588
                                                                top:168
-                                                             width:743
-                                                            height:742];
+                                                             width:742
+                                                            height:743];
 
 
     ZXBinaryBitmap *bitmap = [ZXBinaryBitmap binaryBitmapWithBinarizer:
