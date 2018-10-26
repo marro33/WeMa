@@ -13,8 +13,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var isFirstTime = true
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+
+        let everlaunched = "everlaunched"
+        let firstlaunched = "firstlaunch"
+
+        if (!UserDefaults.standard.bool(forKey: everlaunched)){
+            UserDefaults.standard.set(true, forKey: everlaunched)
+            UserDefaults.standard.set(true, forKey: firstlaunched)
+            UserDefaults.standard.synchronize()
+        }else{
+            UserDefaults.standard.set(false, forKey: firstlaunched)
+            UserDefaults.standard.synchronize()
+        }
+
+
+
+        if (UserDefaults.standard.bool(forKey: firstlaunched)){
+            let vc = PageControlViewController()
+            self.window?.rootViewController = vc
+        }
+
+
         // Override point for customization after application launch.
         return true
     }

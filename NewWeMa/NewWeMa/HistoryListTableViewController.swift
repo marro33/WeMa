@@ -8,10 +8,10 @@
 
 import UIKit
 
-class HistoryListTableViewController: UITableViewController {
+class HistoryListTableViewController: UITableViewController, UINavigationControllerDelegate {
 
     var dataModel: DataModel!
-    var lists = [HistoryList]()
+    //    var lists = [HistoryList]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +20,26 @@ class HistoryListTableViewController: UITableViewController {
 
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+
+    //
+    //    override func viewDidAppear(_ animated: Bool) {
+    //        super.viewDidAppear(animated)
+    //
+    ////        navigationController?.delegate = self
+    ////
+    ////        let index = dataModel.indexOfSelectedChecklist
+    ////        if index >= 0 && index < dataModel.lists.count {
+    ////            let checklist = dataModel.lists[index]
+    ////            performSegue(withIdentifier: "ShowChecklist", sender: checklist)
+    ////        }
+    //    }
+
     func loadHistoryListItems(){
         dataModel = DataModel()
-//                dataModel.appendLists(list: HistoryList(result: "liming"))
-        lists = dataModel.lists
+        //        lists = dataModel.lists
     }
 
 
@@ -41,9 +57,9 @@ class HistoryListTableViewController: UITableViewController {
     }
 
 
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == 
-//    }
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //        if segue.identifier ==
+    //    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -52,26 +68,31 @@ class HistoryListTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            performSegue(withIdentifier: "showResult", sender: nil)
+        }
+
+//    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
 //        performSegue(withIdentifier: "showResult", sender: nil)
 //    }
 
-    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-
-        performSegue(withIdentifier: "showResult", sender: nil)
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        //        lists.remove(at: indexPath.row)
+        dataModel.delete(indexOfitem: indexPath.row)
+        let indexPaths = [indexPath]
+        tableView.deleteRows(at: indexPaths, with: .automatic)
     }
-
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return lists.count
+        return dataModel.lists.count
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = makeCell(for: tableView)
 
-        let list = lists[indexPath.row]
+        let list = dataModel.lists[indexPath.row]
         cell.textLabel!.text = list.result
         cell.accessoryType = .detailDisclosureButton
         return cell

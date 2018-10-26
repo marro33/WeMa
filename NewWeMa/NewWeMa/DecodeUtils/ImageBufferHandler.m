@@ -57,20 +57,27 @@
     int dstWidthT = (int)(interestRect.size.width*width);
     int dstHeightT = (int)(interestRect.size.height*height);
 
-    
+    NSLog(@"interestRect%f,%f", interestRect.size.height, interestRect.size.width);
 
     NSLog(@"#:%d + %d + %d + %d",dstLeftT,dstTopT,dstWidthT,dstHeightT);
 
 
     //在这一步处理图像的时候，需要了解扫描框的具体大小但是明显有错误
 
-    MyZXPlanarYUVLuminanceSource *source = [[MyZXPlanarYUVLuminanceSource alloc] initWithYuvData:tempData
-                                                        yuvDataLen:tempDataSize dataWidth:(int)width
-                                                        dataHeight:(int)height
-                                                              left:588
-                                                               top:168
-                                                             width:742
-                                                            height:743];
+//    MyZXPlanarYUVLuminanceSource *source = [[MyZXPlanarYUVLuminanceSource alloc] initWithYuvData:tempData
+//                                                        yuvDataLen:tempDataSize dataWidth:(int)width
+//                                                        dataHeight:(int)height
+//                                                              left:588
+//                                                               top:168
+//                                                             width:742
+//                                                            height:743];
+        MyZXPlanarYUVLuminanceSource *source = [[MyZXPlanarYUVLuminanceSource alloc] initWithYuvData:tempData
+                                                            yuvDataLen:tempDataSize dataWidth:(int)width
+                                                            dataHeight:(int)height
+                                                                  left:dstLeftT
+                                                                   top:dstTopT
+                                                                 width:dstWidthT
+                                                                height:dstHeightT];
 
 
     ZXBinaryBitmap *bitmap = [ZXBinaryBitmap binaryBitmapWithBinarizer:

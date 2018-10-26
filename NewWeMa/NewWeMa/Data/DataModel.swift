@@ -17,10 +17,17 @@ class DataModel{
 //        registerDefaults()
     }
 
-    func appendLists(list: HistoryList){
+    func append(list: HistoryList){
         self.lists.append(list)
         saveChecklists()
     }
+
+    func delete(indexOfitem: Int){
+        self.lists.remove(at: indexOfitem)
+        saveChecklists()
+    }
+
+
 
     func documentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
