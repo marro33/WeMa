@@ -25,10 +25,16 @@ class HistoryDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tranCode.text = result
+//        tranCode.text = result
         //        requestsever()
-        //        print("hello")
+                print("hello")
         //        print(UserDefaults.standard.string(forKey: "token") as! String  )
+    }
+
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tranCode.text = result
     }
 
     var headerstring = "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkQ0MDNCMEI3OUU0Q0QxMERDNEFEMjQyOEYxQTkwQzhENDZCRjQwNTEiLCJ0eXAiOiJKV1QiLCJ4NXQiOiIxQU93dDU1TTBRM0VyU1FvOGFrTWpVYV9RRkUifQ.eyJuYmYiOjE1Mzc0MjYxMTQsImV4cCI6MTUzNzQ2MjExNCwiaXNzIjoiaHR0cHM6Ly9hdXRoLWRldi52ZWltYS5jb20iLCJhdWQiOlsiaHR0cHM6Ly9hdXRoLWRldi52ZWltYS5jb20vcmVzb3VyY2VzIiwiYXBpMSIsImhvc3QiLCJsZ3MiLCJsZ3NfQmluZEdvb2RzIiwibG90dGVyeSIsInFtcyIsInNtcyIsInN5cyIsIndlY2hhdHNtcyIsInlvdXNoaTE1ODciXSwiY2xpZW50X2lkIjoicm8uY2xpZW50Iiwic3ViIjoiMzc4IiwiYXV0aF90aW1lIjoxNTM3NDI2MTE0LCJpZHAiOiJsb2NhbCIsIm9yZ2FuaXphdGlvblBlcm1pc3Npb25zIjoiW10iLCJ1c2VyUGVybWlzc2lvbnMiOiJbMzc4XSIsImN1c3RvbWVySWQiOiIxIiwib3JnSWQiOiIxMSIsImN1c3RvbWVyQ29kZSI6IjEzMzQiLCJ1c2VybmFtZSI6IumrmOWBpSIsImFjY291bnQiOiJnYW9qaWFuIiwicm9sZUlkcyI6IlsxNjhdIiwic2NvcGUiOlsib3BlbmlkIiwicHJvZmlsZSIsImFwaTEiLCJob3N0IiwibGdzIiwibGdzX0JpbmRHb29kcyIsImxvdHRlcnkiLCJxbXMiLCJzbXMiLCJzeXMiLCJ3ZWNoYXRzbXMiLCJ5b3VzaGkxNTg3Iiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInB3ZCJdfQ.s1kDja1uMBsBawwFhgQFay1gGi9yB2Jb21as3EUVDR1Tzh93eVNklmJhwLCTd6TyK0d3XHWnE6oHpDKVDO9Kg-_k50Q0oEaaJt1r8dZTwC_BsW47Zr63mHqtsrZm6jJyeJbEpsCNlnMgoPgy_NF7Voeyt3m30IALM5d9jd4HNIYo_LPTXQmNarfUoGK0YRXWkIrxAMuxNTZQkYS_Mp3Dtnn5yvdlwpEmIpLe_e9zI77SWl88xnz45mPVF665ht9dCcQ-OmobVd50STFZ8VE6B91zf5BbNB6ovh9887qyEOP7MkpveZ2eOkD62BY6S7LcnMhwzY29zAaPUVSV2sIVKQ"

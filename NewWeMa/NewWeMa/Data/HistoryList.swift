@@ -10,11 +10,15 @@ import UIKit
 
 class HistoryList: NSObject, Codable {
     var result = ""
-//    var items: HistoryListItem
+    var time = ""
 
-    init(result: String) {
-        self.result = result
-//        self.items =
+
+    init(result: String, time: String) {
         super.init()
+        self.result = result
+        self.time = time
+
     }
+
+
 }

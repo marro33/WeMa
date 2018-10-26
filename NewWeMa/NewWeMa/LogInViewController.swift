@@ -29,6 +29,14 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     // MARK: Basic
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        //时间戳
+        let date = Date()
+        let dateFormat = DateFormatter.init()
+        dateFormat.dateFormat = "yyyy/MM/dd HH:mm:ss"
+        let time = dateFormat.string(from: date)
+        print(time)
+
         //       设置点击手势监听
         let guesture = UITapGestureRecognizer(target: self, action: #selector(LogInViewController.tapOutofKeyboard(_:)))
         self.view.addGestureRecognizer(guesture)
@@ -105,6 +113,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         //        self.dismiss(animated: true, completion: nil)
         checkAccount()
     }
+
+    @IBAction func easyGate(_ sender: Any) {
+    self.performSegue(withIdentifier: "logsuccess", sender: nil)
+    }
+
 
     func checkAccount (){
 

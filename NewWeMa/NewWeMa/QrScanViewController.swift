@@ -196,10 +196,16 @@ class QrScanViewController: UIViewController,  AVCaptureVideoDataOutputSampleBuf
 
             //Handle the dataModel TUDO
             dataModel = DataModel.init()
-
             let index = result.index(result.startIndex, offsetBy: 7)
             res = result.substring(from: index)
-            dataModel.append(list: HistoryList.init(result: res))
+            
+            let date = Date()
+            let dateFormat = DateFormatter.init()
+            dateFormat.dateFormat = "yyyy/MM/dd HH:mm:ss"
+            let time = dateFormat.string(from: date)
+            print(time)
+
+            dataModel.append(list: HistoryList.init(result: res, time: time))
 
             let alert = UIAlertController(title: "result", message: result, preferredStyle: .alert)
             let action = UIAlertAction (title: "OK", style: .default, handler: {

@@ -11,7 +11,8 @@ import UIKit
 class HistoryListTableViewController: UITableViewController, UINavigationControllerDelegate {
 
     var dataModel: DataModel!
-    //    var lists = [HistoryList]()
+    var item: HistoryList!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,19 +24,6 @@ class HistoryListTableViewController: UITableViewController, UINavigationControl
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
-
-    //
-    //    override func viewDidAppear(_ animated: Bool) {
-    //        super.viewDidAppear(animated)
-    //
-    ////        navigationController?.delegate = self
-    ////
-    ////        let index = dataModel.indexOfSelectedChecklist
-    ////        if index >= 0 && index < dataModel.lists.count {
-    ////            let checklist = dataModel.lists[index]
-    ////            performSegue(withIdentifier: "ShowChecklist", sender: checklist)
-    ////        }
-    //    }
 
     func loadHistoryListItems(){
         dataModel = DataModel()
@@ -57,9 +45,18 @@ class HistoryListTableViewController: UITableViewController, UINavigationControl
     }
 
 
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        if segue.identifier ==
-    //    }
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "showResult"{
+//                let mainStoryboard = UIStoryboard(name:"Main", bundle:nil)
+//                let vc = mainStoryboard.instantiateViewController(withIdentifier: "1111") as! HistoryDetailViewController
+
+                let vc = segue.destination as! HistoryDetailViewController
+                print(item.result)
+                vc.result = item.result
+            }
+
+//            self.navigationController?.pushViewController(vc, animated: true)
+        }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -69,12 +66,14 @@ class HistoryListTableViewController: UITableViewController, UINavigationControl
     // MARK: - Table view data source
 
         override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            item = dataModel.lists[indexPath.row]
             performSegue(withIdentifier: "showResult", sender: nil)
         }
 
-//    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-//        performSegue(withIdentifier: "showResult", sender: nil)
-//    }
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        item = dataModel.lists[indexPath.row]
+        performSegue(withIdentifier: "showResult", sender: nil)
+    }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         //        lists.remove(at: indexPath.row)
@@ -91,9 +90,8 @@ class HistoryListTableViewController: UITableViewController, UINavigationControl
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = makeCell(for: tableView)
-
-        let list = dataModel.lists[indexPath.row]
-        cell.textLabel!.text = list.result
+        let item = dataModel.lists[indexPath.row]
+        cell.textLabel!.text = item.result + "  " + item.time
         cell.accessoryType = .detailDisclosureButton
         return cell
     }

@@ -38,7 +38,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXH-yP-wQb">
-                                <rect key="frame" x="107" y="463" width="200" height="50"/>
+                                <rect key="frame" x="107" y="453" width="200" height="50"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="1Oc-HV-bxx"/>
@@ -55,7 +55,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="1" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="请输入用户名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vxx-t8-R1F">
-                                <rect key="frame" x="137" y="303" width="160" height="30"/>
+                                <rect key="frame" x="137" y="293" width="160" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="160" id="XdI-mY-Jcn"/>
@@ -70,7 +70,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="2" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I9j-VK-tdm">
-                                <rect key="frame" x="137" y="353" width="160" height="30"/>
+                                <rect key="frame" x="137" y="343" width="160" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="AO2-bI-TPV"/>
@@ -85,7 +85,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="3" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="请输入企业号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xa1-yQ-Fla">
-                                <rect key="frame" x="137" y="403" width="160" height="30"/>
+                                <rect key="frame" x="137" y="393" width="160" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="YOo-jR-6aq"/>
@@ -100,19 +100,30 @@
                                 </connections>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="Igg-MJ-WEh">
-                                <rect key="frame" x="67" y="298" width="50" height="40"/>
+                                <rect key="frame" x="67" y="288" width="50" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="RpU-hE-QaI"/>
                                     <constraint firstAttribute="height" constant="40" id="d23-fZ-Osj"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="Hvt-fO-uLS">
-                                <rect key="frame" x="67" y="348" width="50" height="40"/>
+                                <rect key="frame" x="67" y="338" width="50" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Fgx-BN-wrr"/>
                                     <constraint firstAttribute="width" constant="50" id="bhj-aM-t5L"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LqT-CL-5WZ">
+                                <rect key="frame" x="343" y="467" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.2941176593" green="0.50980395079999996" blue="0.97647058959999999" alpha="1" colorSpace="custom" customColorSpace="adobeRGB1998"/>
+                                </state>
+                                <connections>
+                                    <action selector="easyGate:" destination="Wwb-BL-5Gi" eventType="touchUpInside" id="jJ8-4A-Ut4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -128,7 +139,7 @@
                             <constraint firstItem="S6g-pd-YhD" firstAttribute="trailing" secondItem="Kgt-by-2sW" secondAttribute="trailing" id="eiJ-Jg-wdd"/>
                             <constraint firstItem="S6g-pd-YhD" firstAttribute="top" secondItem="beO-sp-Stc" secondAttribute="top" id="myO-ts-2Kv"/>
                             <constraint firstItem="Xa1-yQ-Fla" firstAttribute="centerX" secondItem="beO-sp-Stc" secondAttribute="centerX" constant="10" id="nye-qx-hd4"/>
-                            <constraint firstItem="Vxx-t8-R1F" firstAttribute="centerY" secondItem="beO-sp-Stc" secondAttribute="centerY" constant="-50" id="qab-ow-DI2"/>
+                            <constraint firstItem="Vxx-t8-R1F" firstAttribute="centerY" secondItem="beO-sp-Stc" secondAttribute="centerY" constant="-60" id="qab-ow-DI2"/>
                             <constraint firstItem="Vxx-t8-R1F" firstAttribute="centerY" secondItem="Igg-MJ-WEh" secondAttribute="centerY" id="rF4-gG-3c4"/>
                             <constraint firstItem="I9j-VK-tdm" firstAttribute="top" secondItem="Vxx-t8-R1F" secondAttribute="bottom" constant="20" id="rSP-HW-ui5"/>
                             <constraint firstItem="Xa1-yQ-Fla" firstAttribute="top" secondItem="I9j-VK-tdm" secondAttribute="bottom" constant="20" id="uPj-nO-Al6"/>
