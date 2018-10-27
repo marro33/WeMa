@@ -14,6 +14,15 @@ class DataModel{
 
     init() {
         loadChecklists()
+        let everLoadData = "everLoadData"
+        if(!UserDefaults.standard.bool(forKey: everLoadData)){
+            let date = Date()
+            let dateFormat = DateFormatter.init()
+            dateFormat.dateFormat = "yyyy/MM/dd HH:mm:ss"
+            let time = dateFormat.string(from: date)
+            self.append(list: HistoryList.init(result: "004444834349", time: time))
+            UserDefaults.standard.set(true, forKey: everLoadData)
+        }
 //        registerDefaults()
     }
 
@@ -26,8 +35,6 @@ class DataModel{
         self.lists.remove(at: indexOfitem)
         saveChecklists()
     }
-
-
 
     func documentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)

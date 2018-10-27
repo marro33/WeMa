@@ -269,13 +269,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="物流码：" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OTU-Xu-IHo">
-                                <rect key="frame" x="30" y="114" width="82" height="6"/>
+                                <rect key="frame" x="30" y="114" width="82" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="产品：" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2v2-ox-esr">
-                                <rect key="frame" x="30" y="204" width="62" height="24"/>
+                                <rect key="frame" x="30" y="216" width="62" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="ko6-dC-GWn"/>
                                 </constraints>
@@ -284,7 +284,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="批次：" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39Y-1B-Q4M">
-                                <rect key="frame" x="30" y="312" width="62" height="24"/>
+                                <rect key="frame" x="30" y="324" width="62" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="JBk-HX-H9Z"/>
                                 </constraints>
@@ -293,7 +293,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="经销商：" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIK-gx-YkZ">
-                                <rect key="frame" x="30" y="420" width="82" height="24"/>
+                                <rect key="frame" x="30" y="408" width="82" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="sZz-uQ-fUW"/>
                                 </constraints>
@@ -302,7 +302,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="经销商区域：" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLS-Sg-Mp8">
-                                <rect key="frame" x="30" y="528" width="123" height="24"/>
+                                <rect key="frame" x="30" y="516" width="123" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="80J-ZH-dzM"/>
                                 </constraints>
@@ -310,8 +310,8 @@
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="产品名称" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSZ-k8-4UB">
-                                <rect key="frame" x="30" y="248" width="82" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSZ-k8-4UB">
+                                <rect key="frame" x="30" y="260" width="0.0" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="tUq-1m-BuT"/>
                                 </constraints>
@@ -319,14 +319,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PVYSWE-0000" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBQ-6v-nBA">
-                                <rect key="frame" x="30" y="356" width="139" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBQ-6v-nBA">
+                                <rect key="frame" x="30" y="368" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="经销商的全程" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHN-XP-vGa">
-                                <rect key="frame" x="30" y="464" width="123" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHN-XP-vGa">
+                                <rect key="frame" x="30" y="452" width="0.0" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="QMf-NG-xIx"/>
                                 </constraints>
@@ -334,14 +334,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上海 上海市 宝山区" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiU-oi-4LG">
-                                <rect key="frame" x="30" y="572" width="172" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiU-oi-4LG">
+                                <rect key="frame" x="30" y="560" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1800000000000000000000" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGK-8C-GPS">
-                                <rect key="frame" x="30" y="140" width="272" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGK-8C-GPS">
+                                <rect key="frame" x="30" y="152" width="0.0" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="suz-mr-vng"/>
                                 </constraints>

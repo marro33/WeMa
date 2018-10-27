@@ -28,16 +28,20 @@ class HistoryDetailViewController: UIViewController {
 //        tranCode.text = result
         //        requestsever()
                 print("hello")
-        //        print(UserDefaults.standard.string(forKey: "token") as! String  )
+                print(UserDefaults.standard.string(forKey: "token") as! String  )
+        headerstring = UserDefaults.standard.string(forKey: "token") as! String
+
     }
 
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tranCode.text = result
+        self.requestsever()
+
     }
 
-    var headerstring = "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkQ0MDNCMEI3OUU0Q0QxMERDNEFEMjQyOEYxQTkwQzhENDZCRjQwNTEiLCJ0eXAiOiJKV1QiLCJ4NXQiOiIxQU93dDU1TTBRM0VyU1FvOGFrTWpVYV9RRkUifQ.eyJuYmYiOjE1Mzc0MjYxMTQsImV4cCI6MTUzNzQ2MjExNCwiaXNzIjoiaHR0cHM6Ly9hdXRoLWRldi52ZWltYS5jb20iLCJhdWQiOlsiaHR0cHM6Ly9hdXRoLWRldi52ZWltYS5jb20vcmVzb3VyY2VzIiwiYXBpMSIsImhvc3QiLCJsZ3MiLCJsZ3NfQmluZEdvb2RzIiwibG90dGVyeSIsInFtcyIsInNtcyIsInN5cyIsIndlY2hhdHNtcyIsInlvdXNoaTE1ODciXSwiY2xpZW50X2lkIjoicm8uY2xpZW50Iiwic3ViIjoiMzc4IiwiYXV0aF90aW1lIjoxNTM3NDI2MTE0LCJpZHAiOiJsb2NhbCIsIm9yZ2FuaXphdGlvblBlcm1pc3Npb25zIjoiW10iLCJ1c2VyUGVybWlzc2lvbnMiOiJbMzc4XSIsImN1c3RvbWVySWQiOiIxIiwib3JnSWQiOiIxMSIsImN1c3RvbWVyQ29kZSI6IjEzMzQiLCJ1c2VybmFtZSI6IumrmOWBpSIsImFjY291bnQiOiJnYW9qaWFuIiwicm9sZUlkcyI6IlsxNjhdIiwic2NvcGUiOlsib3BlbmlkIiwicHJvZmlsZSIsImFwaTEiLCJob3N0IiwibGdzIiwibGdzX0JpbmRHb29kcyIsImxvdHRlcnkiLCJxbXMiLCJzbXMiLCJzeXMiLCJ3ZWNoYXRzbXMiLCJ5b3VzaGkxNTg3Iiwib2ZmbGluZV9hY2Nlc3MiXSwiYW1yIjpbInB3ZCJdfQ.s1kDja1uMBsBawwFhgQFay1gGi9yB2Jb21as3EUVDR1Tzh93eVNklmJhwLCTd6TyK0d3XHWnE6oHpDKVDO9Kg-_k50Q0oEaaJt1r8dZTwC_BsW47Zr63mHqtsrZm6jJyeJbEpsCNlnMgoPgy_NF7Voeyt3m30IALM5d9jd4HNIYo_LPTXQmNarfUoGK0YRXWkIrxAMuxNTZQkYS_Mp3Dtnn5yvdlwpEmIpLe_e9zI77SWl88xnz45mPVF665ht9dCcQ-OmobVd50STFZ8VE6B91zf5BbNB6ovh9887qyEOP7MkpveZ2eOkD62BY6S7LcnMhwzY29zAaPUVSV2sIVKQ"
+    var headerstring = ""
 
 
 
@@ -47,21 +51,40 @@ class HistoryDetailViewController: UIViewController {
         ]
         Alamofire.request("https://api-dev.veima.com/lgs/api/LogisticsCodeQuery?logisticsCode=004444834349",method: .get,headers: headers).responseJSON {
             response in
-            //            print("Request: \(String(describing: response.request))")   // original url request
-            //            print("Response: \(String(describing: response.response))") // http url response
-            //            print("Result: \(response.result)")                         // response serialization result
+//                        print("Request: \(String(describing: response.request))")   // original url request
+//                        print("Response: \(String(describing: response.response))") // http url response
+//                        print("Result: \(response.result)")                         // response serialization result
 
 
-            if "\(response.result)"=="SUCCESS"{
-                //self.uploadstatus.text =  "have uploaded sucessfully,please come on!"
-            }
+//            if "\(response.result)"=="SUCCESS"{
+//                //self.uploadstatus.text =  "have uploaded sucessfully,please come on!"
+//            }
+//
+//
+//            if let json = response.result.value {
+//                //print("JSON: \(json)") // serialized json response
+//                print(type(of: json))
+//            }
+
+            print("开始解析")
+            let detail = response.result.value as! Dictionary<String, Any>
+            let data = detail["data"] as! Dictionary<String, Any>
+            var fd = data["fDepotName"] as! String
+            var log = data["logisticsCode"] as! String
+            var bat = data["batchNo"] as! String
+            var goodsname = data["goodsName"] as! String
+            var clientName = data["clientName"] as! String
+            var clientCode = data["clientCode"] as! String
+            var clientAreaName = data["clientAreaName"] as! String
 
 
-            if let json = response.result.value {
-                //print("JSON: \(json)") // serialized json response
-                print(type(of: json))
-            }
+            self.productName.text = goodsname
+            self.serialID.text = bat
+            self.companyName.text = clientName
+            self.comArea.text = clientAreaName
 
+            print(data)
+            print(fd + log + bat )
 
             //            let result = response.result.value
             //            let answer = JSON(result)
@@ -76,8 +99,6 @@ class HistoryDetailViewController: UIViewController {
             //            self.goodsname.text = "\(answer["data"]["goodsName"] )"
 
         }
-
-        //self.pridetableview.reloadData()
 
     }
 

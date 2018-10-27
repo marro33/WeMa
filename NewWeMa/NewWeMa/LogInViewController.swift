@@ -143,16 +143,23 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
 
         Alamofire.request("https://auth-dev.veima.com/connect/token",method: .post, parameters: account).responseJSON{
             response in
+
             print("Response: \(String(describing: response.response))") // http url response
             let httpStatusCode = response.response?.statusCode
 
-//            let result = response.result.value
-//            let answer = JSON(result)
             if (httpStatusCode == 200){
                 self.performSegue(withIdentifier: "logsuccess", sender: nil)
+
+                let value = response.result.value as! Dictionary<String, Any>
+                //            let answer = JSON(result)
+                //            print(value)
+                var token = value["access_token"] as! String
+                token = "Bearer " + token
+                print(token)
+
                 //                let token = "nihao"
                 //                print(token)
-                //                UserDefaults.standard.set(token, forKey: "token")
+                UserDefaults.standard.set(token, forKey: "token")
 //
 //                let token = "\(answer["access_token"])"
 //                token = "Bearer " + token

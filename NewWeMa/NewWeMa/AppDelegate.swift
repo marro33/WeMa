@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let everlaunched = "everlaunched"
         let firstlaunched = "firstlaunch"
+        
 
         if (!UserDefaults.standard.bool(forKey: everlaunched)){
             UserDefaults.standard.set(true, forKey: everlaunched)
