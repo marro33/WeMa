@@ -34,6 +34,8 @@ class QrScanViewController: UIViewController,  AVCaptureVideoDataOutputSampleBuf
     override func viewDidLoad() {
         super.viewDidLoad()
 
+//        UserDefaults.standard.set(false, forKey: "loging")
+
         self.basicUIinit()
         captureSession = nil;
         btnStartStop.setTitle("点击开始扫描", for: .normal)

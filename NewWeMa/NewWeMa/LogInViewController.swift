@@ -19,6 +19,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var idTextfield: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
 
+    let requestURL = "https://auth.veima.com/connect/token"
+    let requestURL_test = "https://auth-dev.veima.com/connect/token"
+    var url = ""
+
 
     var username : String!
     var password : String!
@@ -29,6 +33,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     // MARK: Basic
     override func viewDidLoad() {
         super.viewDidLoad()
+
 
         //时间戳
         let date = Date()
@@ -77,10 +82,13 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
 
         if textField.restorationIdentifier == "1"{
             textField.keyboardType = UIKeyboardType.emailAddress
-        }else{
+        }else if textField.restorationIdentifier == "2"{
             textField.isSecureTextEntry = true
+//            textField.keyboardType = UIKeyboardType.numberPad
+        }else{
             textField.keyboardType = UIKeyboardType.numberPad
         }
+
         textField.keyboardAppearance = UIKeyboardAppearance.dark
         textField.delegate = self
     }
@@ -111,11 +119,59 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     @IBAction func loginBtn(_ sender: UIButton) {
         print("tapping")
         //        self.dismiss(animated: true, completion: nil)
+
         checkAccount()
+
+//        if !UserDefaults.standard.bool(forKey: "loging"){
+//            checkAccount()
+//            UserDefaults.standard.set(true, forKey: "loged")
+//        }
     }
 
     @IBAction func easyGate(_ sender: Any) {
-    self.performSegue(withIdentifier: "logsuccess", sender: nil)
+//        self.performSegue(withIdentifier: "logsuccess", sender: nil)
+//
+//
+//        let vc = WebViewController()
+//        self.navigationController?.pushViewController(vc, animated: true)
+
+
+        self.showActionSheet()
+    }
+
+    func showActionSheet() {
+        let alert = UIAlertController(title: "Information", message: "登录遇到问题", preferredStyle: UIAlertController.Style.actionSheet)
+
+        let web = UIAlertAction(title: "进入迅亚", style: UIAlertAction.Style.default, handler: {(alert:UIAlertAction) -> Void in
+
+            let vc = WebViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        })
+
+        let scan = UIAlertAction(title: "免登陆进入", style: UIAlertAction.Style.destructive, handler: {(alert:UIAlertAction) -> Void in
+
+            self.performSegue(withIdentifier: "logsuccess", sender: nil)
+        })
+
+        let test = UIAlertAction(title: "测试模式登陆进入", style: UIAlertAction.Style.destructive, handler: {(alert:UIAlertAction) -> Void in
+
+            if !UserDefaults.standard.bool(forKey: "test"){
+                print("test mode")
+                UserDefaults.standard.set(true, forKey: "test")
+                self.loginBtn.setTitle("测试模式", for: .normal)
+            }else{
+                print("normal")
+                UserDefaults.standard.set(false, forKey: "test")
+                self.loginBtn.setTitle("登录", for: .normal)
+            }
+        })
+        let cancel = UIAlertAction(title: "取消", style: UIAlertAction.Style.cancel, handler: nil)
+
+        alert.addAction(web)
+        alert.addAction(scan)
+        alert.addAction(test)
+        alert.addAction(cancel)
+        self.present(alert,animated: true, completion: nil)
     }
 
 
@@ -127,6 +183,15 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         //                                     "client_id":"ro.client",
         //                                     "client_secret":"secret",
         //                                     "customer_code":"1334"]
+
+
+        if !UserDefaults.standard.bool(forKey: "test"){
+            url = requestURL
+        }else{
+            url = requestURL_test
+        }
+        print(url)
+
 
         username = usernameTextfield.text as? String
         password = passwordTextfield.text as? String
@@ -141,11 +206,15 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                                     "client_secret":"secret",
                                     "customer_code":id!]
 
-        Alamofire.request("https://auth-dev.veima.com/connect/token",method: .post, parameters: account).responseJSON{
-            response in
 
+
+        Alamofire.request(url,method: .post, parameters: account).responseJSON{
+            response in
+            
+            print("Request: \(String(describing: response.request))")
             print("Response: \(String(describing: response.response))") // http url response
             let httpStatusCode = response.response?.statusCode
+            
 
             if (httpStatusCode == 200){
                 self.performSegue(withIdentifier: "logsuccess", sender: nil)

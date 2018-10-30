@@ -10,11 +10,10 @@ import UIKit
 import Alamofire
 //import SwiftyJSON
 
-
 class HistoryDetailViewController: UIViewController {
 
 
-    var result = ""
+
     @IBOutlet weak var tranCode: UILabel!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var serialID: UILabel!
@@ -22,86 +21,120 @@ class HistoryDetailViewController: UIViewController {
     @IBOutlet weak var comArea: UILabel!
 
 
+    var result = ""
+    var goodsname = ""
+    var clientName = ""
+    var clientCode = ""
+    var clientAreaName = ""
 
+    var headerstring = ""
+
+    let requestURL = "https://api.veima.com/lgs/api/LogisticsCodeQuery?logisticsCode="
+
+    let requestURL_test = "https://api-dev.veima.com/lgs/api/LogisticsCodeQuery?logisticsCode="
+    var url = ""
+
+    // MARK:- BASIC
     override func viewDidLoad() {
         super.viewDidLoad()
-//        tranCode.text = result
-        //        requestsever()
-                print("hello")
-                print(UserDefaults.standard.string(forKey: "token") as! String  )
+        print(UserDefaults.standard.string(forKey: "token") as! String  )
         headerstring = UserDefaults.standard.string(forKey: "token") as! String
 
     }
 
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tranCode.text = result
-        self.requestsever()
+        do{
+            self.requestsever()
+        }catch ErrorType.invalidURL{
+            
+        }catch ErrorType.invaliedResult{
 
+        }
     }
 
-    var headerstring = ""
+    // MARK:- REQUEST FOR MESSAGE
+
+
+    enum ErrorType: Error {
+        case invalidURL
+        case invaliedResult
+    }
 
 
 
     func  requestsever(){
-        let headers: HTTPHeaders = [
-            "authorization": headerstring
-        ]
-        Alamofire.request("https://api-dev.veima.com/lgs/api/LogisticsCodeQuery?logisticsCode=004444834349",method: .get,headers: headers).responseJSON {
+        let headers: HTTPHeaders = ["authorization": headerstring]
+
+
+        if !UserDefaults.standard.bool(forKey: "test"){
+            url = requestURL
+        }else{
+            url = requestURL_test
+        }
+        print(url)
+
+        url += result
+
+
+//        print(">>>>>>>>>>> \(requestURL)")
+
+        Alamofire.request(url, method: .get,headers: headers).responseJSON {
             response in
-//                        print("Request: \(String(describing: response.request))")   // original url request
-//                        print("Response: \(String(describing: response.response))") // http url response
-//                        print("Result: \(response.result)")                         // response serialization result
+                        print("Request: \(String(describing: response.request))")   // original url request
+                        print("Response: \(String(describing: response.response))") // http url response
+                        print("Result: \(response.result)")                         // response serialization result
+            if "\(response.result)"=="SUCCESS"{
+                print("开始解析JSON")
+
+                let detail = response.result.value as! Dictionary<String, Any>
+                let data = detail["data"] as! Dictionary<String, Any>
+                print(data)
+
+                var fd = data["fDepotName"] as! String
+                var log = data["logisticsCode"] as! String
+                var bat = data["batchNo"] as! String
+                var goodsname = data["goodsName"] as! String
+                var clientName = data["clientName"] as! String
+                var clientCode = data["clientCode"] as! String
+                var clientAreaName = data["clientAreaName"] as! String
+
+                self.productName.text = goodsname
+                self.serialID.text = bat
+                self.companyName.text = clientName
+                self.comArea.text = clientAreaName
+            }else{
+                self.showAlert()
+            }
 
 
-//            if "\(response.result)"=="SUCCESS"{
-//                //self.uploadstatus.text =  "have uploaded sucessfully,please come on!"
-//            }
-//
-//
-//            if let json = response.result.value {
-//                //print("JSON: \(json)") // serialized json response
-//                print(type(of: json))
-//            }
-
-            print("开始解析")
-            let detail = response.result.value as! Dictionary<String, Any>
-            let data = detail["data"] as! Dictionary<String, Any>
-            var fd = data["fDepotName"] as! String
-            var log = data["logisticsCode"] as! String
-            var bat = data["batchNo"] as! String
-            var goodsname = data["goodsName"] as! String
-            var clientName = data["clientName"] as! String
-            var clientCode = data["clientCode"] as! String
-            var clientAreaName = data["clientAreaName"] as! String
-
-
-            self.productName.text = goodsname
-            self.serialID.text = bat
-            self.companyName.text = clientName
-            self.comArea.text = clientAreaName
-
-            print(data)
-            print(fd + log + bat )
-
-            //            let result = response.result.value
-            //            let answer = JSON(result)
-            //            print(answer)
-            //            print(answer["data"]["fDepotName"])
-            //            self.fdepotname.text = "\(answer["data"]["fDepotName"])"
-            //            print(answer["data"]["logisticsCode"])
-            //            self.logisticscode.text = "\(answer["data"]["logisticsCode"])"
-            //            print(answer["data"]["batchNo"])
-            //            self.batchcode.text = "\(answer["data"]["batchNo"])"
-            //            print(answer["data"]["goodsName"])
-            //            self.goodsname.text = "\(answer["data"]["goodsName"] )"
 
         }
 
     }
 
+
+    func showAlert(){
+
+        let alert = UIAlertController(title: "结果加载失败", message: "请重新登录", preferredStyle: .alert)
+        let action = UIAlertAction (title: "登录", style: .default, handler: {
+            (alerts: UIAlertAction) -> Void in
+
+            let mainStoryboard = UIStoryboard(name:"Main", bundle:nil)
+
+            let viewController = mainStoryboard.instantiateInitialViewController() as! UINavigationController
+            self.present(viewController, animated: true, completion: nil)
+
+        })
+        let action2 = UIAlertAction (title: "取消", style: .cancel, handler: {
+            (alerts: UIAlertAction) -> Void in
+
+        })
+        alert.addAction(action)
+        alert.addAction(action2)
+        present(alert,animated: true,completion: nil)
+    }
 
 
     /*

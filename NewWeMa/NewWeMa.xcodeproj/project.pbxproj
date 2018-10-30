@@ -36,6 +36,7 @@
 		798DFAAD2142EBED007A30B2 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 798DFAAC2142EBED007A30B2 /* Alamofire.framework */; };
 		798DFAAE2142EBED007A30B2 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 798DFAAC2142EBED007A30B2 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		798DFAB02142EF0C007A30B2 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798DFAAF2142EF0C007A30B2 /* LogInViewController.swift */; };
+		799A2A9B2187DFB3004DBEE1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799A2A9A2187DFB3004DBEE1 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -94,6 +95,7 @@
 		798DFAA92142EB10007A30B2 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = NewWeMa/Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
 		798DFAAC2142EBED007A30B2 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = NewWeMa/Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		798DFAAF2142EF0C007A30B2 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		799A2A9A2187DFB3004DBEE1 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 				790D52BD2143A57D0015651C /* DecodeUtils */,
 				798DFA8F2142E976007A30B2 /* AppDelegate.swift */,
 				798DFAAF2142EF0C007A30B2 /* LogInViewController.swift */,
+				799A2A9A2187DFB3004DBEE1 /* WebViewController.swift */,
 				0B93A6A0214393F300E4C811 /* QrScanViewController.swift */,
 				793AF5D82150E84600C199C3 /* HistoryListTableViewController.swift */,
 				791681F42173999E00C2A1D5 /* HistoryDetailViewController.swift */,
@@ -317,6 +320,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				799A2A9B2187DFB3004DBEE1 /* WebViewController.swift in Sources */,
 				7935C57E2183845F00B1E3C0 /* HistoryList.swift in Sources */,
 				7935C56B218373F900B1E3C0 /* ThirdViewController.swift in Sources */,
 				798DFAB02142EF0C007A30B2 /* LogInViewController.swift in Sources */,
@@ -475,6 +479,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WXSD68Y8D7;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -504,6 +509,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WXSD68Y8D7;
 				FRAMEWORK_SEARCH_PATHS = (
