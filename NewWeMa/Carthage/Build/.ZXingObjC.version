@@ -1,0 +1,21 @@
+{
+  "Mac" : [
+    {
+      "name" : "ZXingObjC",
+      "hash" : "7ff3fcaabace87fe22d50fe5c4d33ba7b9b7c672c7094abf5fd9db52614cf483"
+    }
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "3.6.0",
+  "iOS" : [
+    {
+      "name" : "ZXingObjC",
+      "hash" : "b5303def6803cbeadc2cb99ee49006fd0711be2dd076283c5d0f4871da00fce6"
+    }
+  ]
+}

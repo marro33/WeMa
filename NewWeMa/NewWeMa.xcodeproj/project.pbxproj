@@ -23,18 +23,14 @@
 		7935C57D2183845F00B1E3C0 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7935C57B2183845F00B1E3C0 /* DataModel.swift */; };
 		7935C57E2183845F00B1E3C0 /* HistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7935C57C2183845F00B1E3C0 /* HistoryList.swift */; };
 		793AF5D92150E84600C199C3 /* HistoryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793AF5D82150E84600C199C3 /* HistoryListTableViewController.swift */; };
+		79575C672188A71A00623FC5 /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79575C662188A71A00623FC5 /* ZXingObjC.framework */; };
+		79575C682188A71A00623FC5 /* ZXingObjC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 79575C662188A71A00623FC5 /* ZXingObjC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		79693D2B2147B82E00C6D194 /* MyZXPlanarYUVLuminanceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 79693D2A2147B82E00C6D194 /* MyZXPlanarYUVLuminanceSource.m */; };
 		79693D2E2148A86C00C6D194 /* ImageBufferHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 79693D2D2148A86C00C6D194 /* ImageBufferHandler.m */; };
 		79693D3121490E0300C6D194 /* rc4.c in Sources */ = {isa = PBXBuildFile; fileRef = 79693D2F21490E0300C6D194 /* rc4.c */; };
 		7986E929217215D3006E5BFF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7986E928217215D3006E5BFF /* Images.xcassets */; };
 		798DFA902142E976007A30B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798DFA8F2142E976007A30B2 /* AppDelegate.swift */; };
 		798DFA9A2142E977007A30B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 798DFA982142E977007A30B2 /* LaunchScreen.storyboard */; };
-		798DFAA42142EAA9007A30B2 /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 798DFAA32142EAA9007A30B2 /* ZXingObjC.framework */; };
-		798DFAA52142EAA9007A30B2 /* ZXingObjC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 798DFAA32142EAA9007A30B2 /* ZXingObjC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		798DFAAA2142EB10007A30B2 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 798DFAA92142EB10007A30B2 /* AFNetworking.framework */; };
-		798DFAAB2142EB10007A30B2 /* AFNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 798DFAA92142EB10007A30B2 /* AFNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		798DFAAD2142EBED007A30B2 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 798DFAAC2142EBED007A30B2 /* Alamofire.framework */; };
-		798DFAAE2142EBED007A30B2 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 798DFAAC2142EBED007A30B2 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		798DFAB02142EF0C007A30B2 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798DFAAF2142EF0C007A30B2 /* LogInViewController.swift */; };
 		799A2A9B2187DFB3004DBEE1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799A2A9A2187DFB3004DBEE1 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
@@ -46,9 +42,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				798DFAA52142EAA9007A30B2 /* ZXingObjC.framework in Embed Frameworks */,
-				798DFAAE2142EBED007A30B2 /* Alamofire.framework in Embed Frameworks */,
-				798DFAAB2142EB10007A30B2 /* AFNetworking.framework in Embed Frameworks */,
+				79575C682188A71A00623FC5 /* ZXingObjC.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,6 +73,8 @@
 		7935C57B2183845F00B1E3C0 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		7935C57C2183845F00B1E3C0 /* HistoryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryList.swift; sourceTree = "<group>"; };
 		793AF5D82150E84600C199C3 /* HistoryListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListTableViewController.swift; sourceTree = "<group>"; };
+		79575C612188A6FF00623FC5 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		79575C662188A71A00623FC5 /* ZXingObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZXingObjC.framework; path = Carthage/Build/iOS/ZXingObjC.framework; sourceTree = "<group>"; };
 		79693D292147B82E00C6D194 /* MyZXPlanarYUVLuminanceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyZXPlanarYUVLuminanceSource.h; sourceTree = "<group>"; };
 		79693D2A2147B82E00C6D194 /* MyZXPlanarYUVLuminanceSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyZXPlanarYUVLuminanceSource.m; sourceTree = "<group>"; };
 		79693D2C2148A86C00C6D194 /* ImageBufferHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageBufferHandler.h; sourceTree = "<group>"; };
@@ -91,9 +87,6 @@
 		798DFA8F2142E976007A30B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		798DFA992142E977007A30B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		798DFA9B2142E977007A30B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		798DFAA32142EAA9007A30B2 /* ZXingObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZXingObjC.framework; path = NewWeMa/Carthage/Build/iOS/ZXingObjC.framework; sourceTree = "<group>"; };
-		798DFAA92142EB10007A30B2 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = NewWeMa/Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
-		798DFAAC2142EBED007A30B2 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = NewWeMa/Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		798DFAAF2142EF0C007A30B2 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		799A2A9A2187DFB3004DBEE1 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,10 +96,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				798DFAA42142EAA9007A30B2 /* ZXingObjC.framework in Frameworks */,
-				798DFAAD2142EBED007A30B2 /* Alamofire.framework in Frameworks */,
-				798DFAAA2142EB10007A30B2 /* AFNetworking.framework in Frameworks */,
 				6E41006D6B3245CAC348193B /* Pods_NewWeMa.framework in Frameworks */,
+				79575C672188A71A00623FC5 /* ZXingObjC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,9 +146,8 @@
 		798DFA832142E976007A30B2 = {
 			isa = PBXGroup;
 			children = (
-				798DFAAC2142EBED007A30B2 /* Alamofire.framework */,
-				798DFAA92142EB10007A30B2 /* AFNetworking.framework */,
-				798DFAA32142EAA9007A30B2 /* ZXingObjC.framework */,
+				79575C662188A71A00623FC5 /* ZXingObjC.framework */,
+				79575C612188A6FF00623FC5 /* Alamofire.framework */,
 				798DFA8E2142E976007A30B2 /* NewWeMa */,
 				798DFA8D2142E976007A30B2 /* Products */,
 				D9844C15ADC7732688BA2CAC /* Pods */,
@@ -220,6 +210,7 @@
 				798DFA8A2142E976007A30B2 /* Resources */,
 				798DFAA62142EAA9007A30B2 /* Embed Frameworks */,
 				7109E20EFFDD3524AA6614E4 /* [CP] Embed Pods Frameworks */,
+				79575C692188A7AD00623FC5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -294,6 +285,25 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NewWeMa/Pods-NewWeMa-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		79575C692188A7AD00623FC5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ZXingObjC.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 		C297F796DCDB59E54BF5B055 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -485,6 +495,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/NewWeMa/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = NewWeMa/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -499,7 +510,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "NewWeMa/NewWeMa-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -516,6 +527,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/NewWeMa/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = NewWeMa/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -529,7 +541,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "NewWeMa/NewWeMa-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
