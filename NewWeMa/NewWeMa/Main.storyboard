@@ -98,9 +98,8 @@
                                     <constraint firstAttribute="width" constant="50" id="bhj-aM-t5L"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LqT-CL-5WZ">
-                                <rect key="frame" x="343" y="467" width="22" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LqT-CL-5WZ">
+                                <rect key="frame" x="337" y="462" width="22" height="22"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.2941176593" green="0.50980395079999996" blue="0.97647058959999999" alpha="1" colorSpace="custom" customColorSpace="adobeRGB1998"/>
@@ -134,6 +133,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="LqT-CL-5WZ" firstAttribute="centerY" secondItem="AXH-yP-wQb" secondAttribute="centerY" constant="10" id="0ke-HL-C9y"/>
                             <constraint firstItem="AXH-yP-wQb" firstAttribute="centerX" secondItem="beO-sp-Stc" secondAttribute="centerX" id="1ea-On-qmS"/>
                             <constraint firstItem="Vxx-t8-R1F" firstAttribute="centerX" secondItem="beO-sp-Stc" secondAttribute="centerX" constant="10" id="1wa-Yt-rHx"/>
                             <constraint firstItem="4UP-nm-33h" firstAttribute="centerX" secondItem="beO-sp-Stc" secondAttribute="centerX" id="3Dp-iq-fFh"/>
@@ -152,6 +152,7 @@
                             <constraint firstItem="Vxx-t8-R1F" firstAttribute="centerY" secondItem="Igg-MJ-WEh" secondAttribute="centerY" id="rF4-gG-3c4"/>
                             <constraint firstItem="I9j-VK-tdm" firstAttribute="top" secondItem="Vxx-t8-R1F" secondAttribute="bottom" constant="20" id="rSP-HW-ui5"/>
                             <constraint firstItem="S6g-pd-YhD" firstAttribute="bottom" secondItem="Kgt-by-2sW" secondAttribute="bottom" id="umN-Eg-hUd"/>
+                            <constraint firstItem="LqT-CL-5WZ" firstAttribute="leading" secondItem="AXH-yP-wQb" secondAttribute="trailing" constant="30" id="z3a-62-oIT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kgt-by-2sW"/>
                     </view>

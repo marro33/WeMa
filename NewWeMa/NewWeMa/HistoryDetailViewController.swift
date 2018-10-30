@@ -37,8 +37,8 @@ class HistoryDetailViewController: UIViewController {
     // MARK:- BASIC
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(UserDefaults.standard.string(forKey: "token") as! String  )
-        headerstring = UserDefaults.standard.string(forKey: "token") as! String
+//        print(UserDefaults.standard.string(forKey: "token") as! String  )
+
 
     }
 
@@ -47,10 +47,8 @@ class HistoryDetailViewController: UIViewController {
         tranCode.text = result
         do{
             self.requestsever()
-        }catch ErrorType.invalidURL{
-            
-        }catch ErrorType.invaliedResult{
-
+        }catch ErrorType.invalidToken{
+            self.showAlert()
         }
     }
 
@@ -59,12 +57,21 @@ class HistoryDetailViewController: UIViewController {
 
     enum ErrorType: Error {
         case invalidURL
-        case invaliedResult
+        case invalidResult
+        case invalidToken
     }
 
 
 
     func  requestsever(){
+
+        if UserDefaults.standard.string(forKey: "token") == nil{
+            self.showAlert()
+            return 
+        }
+
+
+        headerstring = UserDefaults.standard.string(forKey: "token") as! String
         let headers: HTTPHeaders = ["authorization": headerstring]
 
 
@@ -107,8 +114,6 @@ class HistoryDetailViewController: UIViewController {
             }else{
                 self.showAlert()
             }
-
-
 
         }
 
