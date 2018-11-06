@@ -127,7 +127,7 @@
                                 <rect key="frame" x="169.66666666666666" y="548" width="75" height="30"/>
                                 <state key="normal" title="@驰亚科技"/>
                                 <connections>
-                                    <segue destination="oOQ-Zh-lOW" kind="show" id="Np0-MN-n6z"/>
+                                    <segue destination="oOQ-Zh-lOW" kind="show" identifier="web" id="Np0-MN-n6z"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		0B93A6A1214393F300E4C811 /* QrScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B93A6A0214393F300E4C811 /* QrScanViewController.swift */; };
 		6E41006D6B3245CAC348193B /* Pods_NewWeMa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BCF53FF9755CB99F2E1C198 /* Pods_NewWeMa.framework */; };
-		790D52C72143A58C0015651C /* MyImageChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 790D52BF2143A58C0015651C /* MyImageChecker.m */; };
-		790D52C92143A58C0015651C /* DecodeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 790D52C52143A58C0015651C /* DecodeUtils.m */; };
-		790D52CA2143A58C0015651C /* MyPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 790D52C62143A58C0015651C /* MyPoint.m */; };
 		790D530B2146530E0015651C /* myCodeObjcV.c in Sources */ = {isa = PBXBuildFile; fileRef = 790D530A2146530E0015651C /* myCodeObjcV.c */; };
 		791681F52173999E00C2A1D5 /* HistoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791681F42173999E00C2A1D5 /* HistoryDetailViewController.swift */; };
 		7935C56A218373F900B1E3C0 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7935C566218373F900B1E3C0 /* FirstViewController.swift */; };
@@ -25,6 +22,9 @@
 		793AF5D92150E84600C199C3 /* HistoryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793AF5D82150E84600C199C3 /* HistoryListTableViewController.swift */; };
 		79575C672188A71A00623FC5 /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79575C662188A71A00623FC5 /* ZXingObjC.framework */; };
 		79575C682188A71A00623FC5 /* ZXingObjC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 79575C662188A71A00623FC5 /* ZXingObjC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		79575C712189FB4B00623FC5 /* MyPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 79575C6C2189FB4B00623FC5 /* MyPoint.m */; };
+		79575C722189FB4B00623FC5 /* DecodeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 79575C6D2189FB4B00623FC5 /* DecodeUtils.m */; };
+		79575C732189FB4B00623FC5 /* MyImageChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 79575C6E2189FB4B00623FC5 /* MyImageChecker.m */; };
 		79693D2B2147B82E00C6D194 /* MyZXPlanarYUVLuminanceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 79693D2A2147B82E00C6D194 /* MyZXPlanarYUVLuminanceSource.m */; };
 		79693D2E2148A86C00C6D194 /* ImageBufferHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 79693D2D2148A86C00C6D194 /* ImageBufferHandler.m */; };
 		79693D3121490E0300C6D194 /* rc4.c in Sources */ = {isa = PBXBuildFile; fileRef = 79693D2F21490E0300C6D194 /* rc4.c */; };
@@ -55,13 +55,6 @@
 		0B93A6A0214393F300E4C811 /* QrScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrScanViewController.swift; sourceTree = "<group>"; };
 		5BCF53FF9755CB99F2E1C198 /* Pods_NewWeMa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewWeMa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69BD66124D1D2152351E53E8 /* Pods-NewWeMa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewWeMa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewWeMa/Pods-NewWeMa.debug.xcconfig"; sourceTree = "<group>"; };
-		790D52BE2143A58C0015651C /* MyPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyPoint.h; path = DecodeUtils/MyPoint.h; sourceTree = SOURCE_ROOT; };
-		790D52BF2143A58C0015651C /* MyImageChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyImageChecker.m; path = DecodeUtils/MyImageChecker.m; sourceTree = SOURCE_ROOT; };
-		790D52C02143A58C0015651C /* dataconstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dataconstants.h; path = DecodeUtils/dataconstants.h; sourceTree = SOURCE_ROOT; };
-		790D52C32143A58C0015651C /* MyImageChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyImageChecker.h; path = DecodeUtils/MyImageChecker.h; sourceTree = SOURCE_ROOT; };
-		790D52C42143A58C0015651C /* DecodeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DecodeUtils.h; path = DecodeUtils/DecodeUtils.h; sourceTree = SOURCE_ROOT; };
-		790D52C52143A58C0015651C /* DecodeUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DecodeUtils.m; path = DecodeUtils/DecodeUtils.m; sourceTree = SOURCE_ROOT; };
-		790D52C62143A58C0015651C /* MyPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyPoint.m; path = DecodeUtils/MyPoint.m; sourceTree = SOURCE_ROOT; };
 		790D530A2146530E0015651C /* myCodeObjcV.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = myCodeObjcV.c; sourceTree = "<group>"; };
 		791681F42173999E00C2A1D5 /* HistoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailViewController.swift; sourceTree = "<group>"; };
 		7935C566218373F900B1E3C0 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +68,13 @@
 		793AF5D82150E84600C199C3 /* HistoryListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListTableViewController.swift; sourceTree = "<group>"; };
 		79575C612188A6FF00623FC5 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		79575C662188A71A00623FC5 /* ZXingObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZXingObjC.framework; path = Carthage/Build/iOS/ZXingObjC.framework; sourceTree = "<group>"; };
+		79575C6A2189FB4A00623FC5 /* MyPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPoint.h; sourceTree = "<group>"; };
+		79575C6B2189FB4B00623FC5 /* DecodeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecodeUtils.h; sourceTree = "<group>"; };
+		79575C6C2189FB4B00623FC5 /* MyPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPoint.m; sourceTree = "<group>"; };
+		79575C6D2189FB4B00623FC5 /* DecodeUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecodeUtils.m; sourceTree = "<group>"; };
+		79575C6E2189FB4B00623FC5 /* MyImageChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyImageChecker.m; sourceTree = "<group>"; };
+		79575C6F2189FB4B00623FC5 /* MyImageChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyImageChecker.h; sourceTree = "<group>"; };
+		79575C702189FB4B00623FC5 /* dataconstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataconstants.h; sourceTree = "<group>"; };
 		79693D292147B82E00C6D194 /* MyZXPlanarYUVLuminanceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyZXPlanarYUVLuminanceSource.h; sourceTree = "<group>"; };
 		79693D2A2147B82E00C6D194 /* MyZXPlanarYUVLuminanceSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyZXPlanarYUVLuminanceSource.m; sourceTree = "<group>"; };
 		79693D2C2148A86C00C6D194 /* ImageBufferHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageBufferHandler.h; sourceTree = "<group>"; };
@@ -118,15 +118,15 @@
 				79693D3221490FA100C6D194 /* com_example_testdecode_RSDecoder.h */,
 				79693D292147B82E00C6D194 /* MyZXPlanarYUVLuminanceSource.h */,
 				79693D2A2147B82E00C6D194 /* MyZXPlanarYUVLuminanceSource.m */,
-				790D52C02143A58C0015651C /* dataconstants.h */,
-				790D52C42143A58C0015651C /* DecodeUtils.h */,
-				790D52C52143A58C0015651C /* DecodeUtils.m */,
-				790D52C32143A58C0015651C /* MyImageChecker.h */,
-				790D52BF2143A58C0015651C /* MyImageChecker.m */,
+				79575C702189FB4B00623FC5 /* dataconstants.h */,
+				79575C6F2189FB4B00623FC5 /* MyImageChecker.h */,
+				79575C6B2189FB4B00623FC5 /* DecodeUtils.h */,
+				79575C6D2189FB4B00623FC5 /* DecodeUtils.m */,
+				79575C6E2189FB4B00623FC5 /* MyImageChecker.m */,
+				79575C6A2189FB4A00623FC5 /* MyPoint.h */,
+				79575C6C2189FB4B00623FC5 /* MyPoint.m */,
 				79693D2F21490E0300C6D194 /* rc4.c */,
 				79693D3021490E0300C6D194 /* rc4.h */,
-				790D52BE2143A58C0015651C /* MyPoint.h */,
-				790D52C62143A58C0015651C /* MyPoint.m */,
 				790D530A2146530E0015651C /* myCodeObjcV.c */,
 				79693D2C2148A86C00C6D194 /* ImageBufferHandler.h */,
 				79693D2D2148A86C00C6D194 /* ImageBufferHandler.m */,
@@ -338,14 +338,14 @@
 				0B93A6A1214393F300E4C811 /* QrScanViewController.swift in Sources */,
 				791681F52173999E00C2A1D5 /* HistoryDetailViewController.swift in Sources */,
 				79693D3121490E0300C6D194 /* rc4.c in Sources */,
+				79575C712189FB4B00623FC5 /* MyPoint.m in Sources */,
+				79575C732189FB4B00623FC5 /* MyImageChecker.m in Sources */,
 				790D530B2146530E0015651C /* myCodeObjcV.c in Sources */,
 				793AF5D92150E84600C199C3 /* HistoryListTableViewController.swift in Sources */,
-				790D52C92143A58C0015651C /* DecodeUtils.m in Sources */,
 				7935C56C218373F900B1E3C0 /* SecondViewController.swift in Sources */,
 				7935C56A218373F900B1E3C0 /* FirstViewController.swift in Sources */,
-				790D52C72143A58C0015651C /* MyImageChecker.m in Sources */,
 				7935C56D218373F900B1E3C0 /* PageControlViewController.swift in Sources */,
-				790D52CA2143A58C0015651C /* MyPoint.m in Sources */,
+				79575C722189FB4B00623FC5 /* DecodeUtils.m in Sources */,
 				7935C57D2183845F00B1E3C0 /* DataModel.swift in Sources */,
 				798DFA902142E976007A30B2 /* AppDelegate.swift in Sources */,
 				79693D2B2147B82E00C6D194 /* MyZXPlanarYUVLuminanceSource.m in Sources */,

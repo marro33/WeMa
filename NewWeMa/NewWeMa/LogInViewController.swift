@@ -142,10 +142,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     func showActionSheet() {
         let alert = UIAlertController(title: "Information", message: "登录遇到问题", preferredStyle: UIAlertController.Style.actionSheet)
 
-        let web = UIAlertAction(title: "进入迅亚", style: UIAlertAction.Style.default, handler: {(alert:UIAlertAction) -> Void in
+        let web = UIAlertAction(title: "进入驰亚", style: UIAlertAction.Style.default, handler: {(alert:UIAlertAction) -> Void in
 
-            let vc = WebViewController()
-            self.navigationController?.pushViewController(vc, animated: true)
+
+            self.performSegue(withIdentifier: "web", sender: nil)
+//            let vc = WebViewController()
+//            self.navigationController?.pushViewController(vc, animated: true)
         })
 
         let scan = UIAlertAction(title: "免登陆进入", style: UIAlertAction.Style.destructive, handler: {(alert:UIAlertAction) -> Void in
