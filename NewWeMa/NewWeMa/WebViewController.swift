@@ -11,20 +11,18 @@ import UIKit
 class WebViewController: UIViewController {
 
     @IBOutlet weak var webView: UIWebView!
+    var url = URL(string: "http://www.siiatech.com")
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        let rect = CGRect(x: 0, y: 30, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 30)
-
-
-        let url = URL(string: "http://www.siiatech.com")
+//        let rect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+//        webView.frame = rect
 
         let request = URLRequest(url: url!)
         
         webView.loadRequest(request)
-        self.view.addSubview(webView)
+//        self.view.addSubview(webView)
         // Do any additional setup after loading the view.
     }
 

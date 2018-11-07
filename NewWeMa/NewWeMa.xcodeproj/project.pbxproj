@@ -15,7 +15,6 @@
 		7935C56B218373F900B1E3C0 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7935C567218373F900B1E3C0 /* ThirdViewController.swift */; };
 		7935C56C218373F900B1E3C0 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7935C568218373F900B1E3C0 /* SecondViewController.swift */; };
 		7935C56D218373F900B1E3C0 /* PageControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7935C569218373F900B1E3C0 /* PageControlViewController.swift */; };
-		7935C56F2183748200B1E3C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7935C56E2183748200B1E3C0 /* Assets.xcassets */; };
 		7935C5782183805D00B1E3C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7935C570218375E700B1E3C0 /* Main.storyboard */; };
 		7935C57D2183845F00B1E3C0 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7935C57B2183845F00B1E3C0 /* DataModel.swift */; };
 		7935C57E2183845F00B1E3C0 /* HistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7935C57C2183845F00B1E3C0 /* HistoryList.swift */; };
@@ -25,6 +24,7 @@
 		79575C712189FB4B00623FC5 /* MyPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 79575C6C2189FB4B00623FC5 /* MyPoint.m */; };
 		79575C722189FB4B00623FC5 /* DecodeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 79575C6D2189FB4B00623FC5 /* DecodeUtils.m */; };
 		79575C732189FB4B00623FC5 /* MyImageChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 79575C6E2189FB4B00623FC5 /* MyImageChecker.m */; };
+		79575C772193489000623FC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79575C762193489000623FC5 /* Assets.xcassets */; };
 		79693D2B2147B82E00C6D194 /* MyZXPlanarYUVLuminanceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 79693D2A2147B82E00C6D194 /* MyZXPlanarYUVLuminanceSource.m */; };
 		79693D2E2148A86C00C6D194 /* ImageBufferHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 79693D2D2148A86C00C6D194 /* ImageBufferHandler.m */; };
 		79693D3121490E0300C6D194 /* rc4.c in Sources */ = {isa = PBXBuildFile; fileRef = 79693D2F21490E0300C6D194 /* rc4.c */; };
@@ -61,7 +61,6 @@
 		7935C567218373F900B1E3C0 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		7935C568218373F900B1E3C0 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		7935C569218373F900B1E3C0 /* PageControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageControlViewController.swift; sourceTree = "<group>"; };
-		7935C56E2183748200B1E3C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7935C570218375E700B1E3C0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7935C57B2183845F00B1E3C0 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		7935C57C2183845F00B1E3C0 /* HistoryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryList.swift; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		79575C6E2189FB4B00623FC5 /* MyImageChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyImageChecker.m; sourceTree = "<group>"; };
 		79575C6F2189FB4B00623FC5 /* MyImageChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyImageChecker.h; sourceTree = "<group>"; };
 		79575C702189FB4B00623FC5 /* dataconstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataconstants.h; sourceTree = "<group>"; };
+		79575C762193489000623FC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79693D292147B82E00C6D194 /* MyZXPlanarYUVLuminanceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyZXPlanarYUVLuminanceSource.h; sourceTree = "<group>"; };
 		79693D2A2147B82E00C6D194 /* MyZXPlanarYUVLuminanceSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyZXPlanarYUVLuminanceSource.m; sourceTree = "<group>"; };
 		79693D2C2148A86C00C6D194 /* ImageBufferHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageBufferHandler.h; sourceTree = "<group>"; };
@@ -182,7 +182,7 @@
 				798DFA9B2142E977007A30B2 /* Info.plist */,
 				0B6EE2CF21439E92005BC58A /* NewWeMa-Bridging-Header.h */,
 				7935C570218375E700B1E3C0 /* Main.storyboard */,
-				7935C56E2183748200B1E3C0 /* Assets.xcassets */,
+				79575C762193489000623FC5 /* Assets.xcassets */,
 				7986E928217215D3006E5BFF /* Images.xcassets */,
 			);
 			path = NewWeMa;
@@ -262,8 +262,8 @@
 			files = (
 				7935C5782183805D00B1E3C0 /* Main.storyboard in Resources */,
 				798DFA9A2142E977007A30B2 /* LaunchScreen.storyboard in Resources */,
+				79575C772193489000623FC5 /* Assets.xcassets in Resources */,
 				7986E929217215D3006E5BFF /* Images.xcassets in Resources */,
-				7935C56F2183748200B1E3C0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

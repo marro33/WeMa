@@ -55,6 +55,16 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         initTextField(passwordTextfield)
         initTextField(idTextfield)
 
+        if UserDefaults.standard.bool(forKey: "test"){
+            print("test mode")
+//            UserDefaults.standard.set(true, forKey: "test")
+            self.loginBtn.setTitle("测试模式", for: .normal)
+        }else{
+            print("normal")
+//            UserDefaults.standard.set(false, forKey: "test")
+            self.loginBtn.setTitle("登录", for: .normal)
+        }
+
     }
 
     override func didReceiveMemoryWarning() {

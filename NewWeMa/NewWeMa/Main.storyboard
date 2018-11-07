@@ -197,9 +197,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hHg-U2-R5j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-539.13043478260875" y="729.61956521739137"/>
+            <point key="canvasLocation" x="-504" y="739"/>
         </scene>
-        <!-- 微码溯源-->
+        <!--Title-->
         <scene sceneID="2rp-Xg-sn4">
             <objects>
                 <viewController id="PEe-s4-LfP" customClass="QrScanViewController" customModule="NewWeMa" customModuleProvider="target" sceneMemberID="viewController">
@@ -211,8 +211,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="可选择隐形码或二维码进行扫描" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zCY-hK-RFb">
+                                <rect key="frame" x="88" y="480" width="238" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="JV3-fq-iZJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Edu-2U-60i">
+                                <rect key="frame" x="182.66666666666666" y="555" width="51" height="31"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="onTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </switch>
                             <button alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sGt-Hg-YRM">
-                                <rect key="frame" x="57" y="594" width="300" height="50"/>
+                                <rect key="frame" x="57" y="636" width="300" height="50"/>
                                 <color key="backgroundColor" red="0.2941176593" green="0.50980395079999996" blue="0.97647058959999999" alpha="1" colorSpace="custom" customColorSpace="adobeRGB1998"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="MAS-tB-bWk"/>
@@ -228,47 +242,44 @@
                                     <action selector="startStopClick:" destination="PEe-s4-LfP" eventType="touchUpInside" id="myc-WT-EAQ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zCY-hK-RFb">
-                                <rect key="frame" x="57" y="674" width="300" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="JV3-fq-iZJ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="17"/>
-                                <color key="textColor" red="0.86666666670000003" green="0.062745098040000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="sGt-Hg-YRM" firstAttribute="centerX" secondItem="edc-1D-zN3" secondAttribute="centerX" id="0Y3-aO-18h"/>
-                            <constraint firstItem="zCY-hK-RFb" firstAttribute="top" secondItem="sGt-Hg-YRM" secondAttribute="bottom" constant="30" id="493-lK-yq3"/>
-                            <constraint firstItem="CZh-Vb-gXi" firstAttribute="top" secondItem="zCY-hK-RFb" secondAttribute="bottom" constant="17" id="FST-Gm-Fk3"/>
-                            <constraint firstItem="sGt-Hg-YRM" firstAttribute="centerX" secondItem="edc-1D-zN3" secondAttribute="centerX" id="J2M-2z-Q4Q"/>
-                            <constraint firstItem="zCY-hK-RFb" firstAttribute="trailing" secondItem="sGt-Hg-YRM" secondAttribute="trailing" id="hay-yo-jBI"/>
-                            <constraint firstItem="zCY-hK-RFb" firstAttribute="leading" secondItem="sGt-Hg-YRM" secondAttribute="leading" id="z93-pG-CAA"/>
+                            <constraint firstItem="sGt-Hg-YRM" firstAttribute="centerX" secondItem="edc-1D-zN3" secondAttribute="centerX" id="CCh-Mm-gxx"/>
+                            <constraint firstItem="CZh-Vb-gXi" firstAttribute="top" secondItem="sGt-Hg-YRM" secondAttribute="bottom" constant="50" id="EXd-K0-8Bm"/>
+                            <constraint firstItem="Edu-2U-60i" firstAttribute="centerX" secondItem="edc-1D-zN3" secondAttribute="centerX" id="Pti-Qw-S5d"/>
+                            <constraint firstItem="zCY-hK-RFb" firstAttribute="centerX" secondItem="edc-1D-zN3" secondAttribute="centerX" id="UYf-5M-d5J"/>
+                            <constraint firstItem="zCY-hK-RFb" firstAttribute="centerX" secondItem="edc-1D-zN3" secondAttribute="centerX" id="VxH-fe-gnu"/>
+                            <constraint firstItem="sGt-Hg-YRM" firstAttribute="top" secondItem="Edu-2U-60i" secondAttribute="bottom" constant="50" id="j7e-y2-g9H"/>
+                            <constraint firstItem="Edu-2U-60i" firstAttribute="top" secondItem="zCY-hK-RFb" secondAttribute="bottom" constant="30" id="lG6-CR-b7w"/>
+                            <constraint firstItem="Edu-2U-60i" firstAttribute="centerX" secondItem="edc-1D-zN3" secondAttribute="centerX" id="lfB-r2-wX9"/>
+                            <constraint firstItem="sGt-Hg-YRM" firstAttribute="centerX" secondItem="edc-1D-zN3" secondAttribute="centerX" id="o78-dc-QzZ"/>
+                            <constraint firstItem="Edu-2U-60i" firstAttribute="top" secondItem="zCY-hK-RFb" secondAttribute="bottom" constant="30" id="u6x-FG-c0O"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DTX-cI-BaC"/>
                     </view>
-                    <navigationItem key="navigationItem" title=" 微码溯源" id="DpM-3F-gNH">
-                        <barButtonItem key="leftBarButtonItem" title="返回" id="cPx-p0-rLQ">
+                    <navigationItem key="navigationItem" title="Title" id="TH1-Y3-eD5">
+                        <barButtonItem key="leftBarButtonItem" title="返回" id="Com-5r-KV0">
                             <connections>
-                                <action selector="cancel:" destination="PEe-s4-LfP" id="ZCC-HU-xoe"/>
+                                <action selector="cancel:" destination="PEe-s4-LfP" id="FsI-pM-gF0"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="历史记录" id="gs9-aP-laa">
+                        <barButtonItem key="rightBarButtonItem" title="历史记录" id="Wbc-58-BhX">
                             <connections>
-                                <segue destination="1vq-ni-lUf" kind="show" id="ANV-4C-1Bx"/>
+                                <segue destination="1vq-ni-lUf" kind="show" id="3gu-8o-cBr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="btnStartStop" destination="sGt-Hg-YRM" id="XHm-qD-vAo"/>
                         <outlet property="lblString" destination="zCY-hK-RFb" id="MGP-5d-3hH"/>
+                        <outlet property="sw" destination="Edu-2U-60i" id="GYe-XV-p55"/>
+                        <segue destination="oOQ-Zh-lOW" kind="show" identifier="qr" id="hON-ZX-E8f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="np5-xd-2sI" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="548" y="-132"/>
+            <point key="canvasLocation" x="547.82608695652175" y="-132.06521739130434"/>
         </scene>
         <!--历史记录-->
         <scene sceneID="if0-Nd-2Vm">
@@ -373,8 +384,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiU-oi-4LG">
-                                <rect key="frame" x="30" y="560" width="0.0" height="0.0"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="3" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiU-oi-4LG">
+                                <rect key="frame" x="30" y="560" width="364" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -405,6 +416,7 @@
                             <constraint firstItem="UIK-gx-YkZ" firstAttribute="leading" secondItem="OTU-Xu-IHo" secondAttribute="leading" id="UK2-KS-l7T"/>
                             <constraint firstItem="IBQ-6v-nBA" firstAttribute="centerY" secondItem="KYt-nt-3cB" secondAttribute="centerY" id="Vo2-NX-diX"/>
                             <constraint firstItem="RSZ-k8-4UB" firstAttribute="leading" secondItem="OTU-Xu-IHo" secondAttribute="leading" id="VpS-hg-L1E"/>
+                            <constraint firstAttribute="trailing" secondItem="iiU-oi-4LG" secondAttribute="trailing" constant="20" id="Yag-rN-wew"/>
                             <constraint firstItem="OTU-Xu-IHo" firstAttribute="top" secondItem="oEt-3y-9up" secondAttribute="top" constant="50" id="YjF-GY-bPI"/>
                             <constraint firstItem="2v2-ox-esr" firstAttribute="leading" secondItem="OTU-Xu-IHo" secondAttribute="leading" id="c4X-kh-lEh"/>
                             <constraint firstItem="UIK-gx-YkZ" firstAttribute="top" secondItem="IBQ-6v-nBA" secondAttribute="bottom" constant="40" id="gPx-Fh-ZaD"/>
@@ -435,4 +447,7 @@
         <image name="password" width="59" height="42"/>
         <image name="user" width="50" height="41"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="hON-ZX-E8f"/>
+    </inferredMetricsTieBreakers>
 </document>

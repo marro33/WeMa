@@ -80,10 +80,10 @@ class HistoryDetailViewController: UIViewController {
         }else{
             url = requestURL_test
         }
-        print(url)
-
+//        let index = result.index(result.startIndex, offsetBy: 1)
+//        result = result.substring(from: index)
         url += result
-
+        print(url)
 
 //        print(">>>>>>>>>>> \(requestURL)")
 
